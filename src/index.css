@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coral: #FF4D4D;
+  --color-orange: #FF8C42;
+  --color-amber: #FFBE0B;
+  --color-teal: #00C9A7;
+  --color-violet: #7B5EA7;
+  --color-indigo: #4361EE;
+  --color-sky: #3ECFCF;
+  --color-cream: #FFFAF3;
+  --color-offwhite: #F5F0E8;
+  --color-charcoal: #1A1A2E;
+  --color-ink: #2D2D3A;
+  --color-muted: #6B6B80;
+
+  --font-syne: "Syne", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink antialiased overflow-x-hidden font-montserrat;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-bold;
+  }
+
+  /* Noise Overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .4;
+  }
+}
+
+@layer utilities {
+  .text-gradient-coral {
+    @apply bg-linear-to-br from-coral to-orange bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-coral {
+    @apply bg-linear-to-br from-coral to-orange;
+  }
+
+  .bg-gradient-indigo {
+    @apply bg-linear-to-br from-indigo to-sky;
+  }
+
+  .bg-gradient-teal {
+    @apply bg-linear-to-br from-teal to-[#00E5C0];
+  }
+
+  .bg-gradient-violet {
+    @apply bg-linear-to-br from-violet to-[#C084FC];
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @keyframes pulse-custom {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: .6; }
+  }
+
+  .animate-pulse-custom {
+    animation: pulse-custom 1.5s infinite;
+  }
+}
+

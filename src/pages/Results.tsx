@@ -6,8 +6,8 @@ const projects = [
     id: 1,
     title: "Gaming Highlights Series",
     creator: "Placeholder Creator 1",
-    thumbnail: "https://picsum.photos/seed/gaming/800/450",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
+    thumbnail: "public/images/true-crime-thumbnail.jpg", // Placeholder image
+    videoUrl: "https://www.youtube.com/watch?v=kobLDCheNBk&ab_channel=Law%26CrimeBodyCam", // Placeholder
     stats: "45M+ Views",
     platforms: ["Facebook", "TikTok"]
   },

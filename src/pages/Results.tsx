@@ -6,8 +6,8 @@ const projects = [
     id: 1,
     title: "Gaming Highlights Series",
     creator: "Placeholder Creator 1",
-    thumbnail: "public/images/true-crime-thumbnail.jpg", // Placeholder image
-    videoUrl: "https://www.youtube.com/watch?v=kobLDCheNBk&ab_channel=Law%26CrimeBodyCam", // Placeholder
+    thumbnail: "/images/image1.jpg",
+    videoUrl: "https://www.facebook.com/watch/?v=792110205219679",
     stats: "45M+ Views",
     platforms: ["Facebook", "TikTok"]
   },
@@ -15,7 +15,7 @@ const projects = [
     id: 2,
     title: "Lifestyle Vlogs Scaling",
     creator: "Placeholder Creator 2",
-    thumbnail: "https://picsum.photos/seed/lifestyle/800/450",
+    thumbnail: "/images/image1.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     stats: "12M+ Views",
     platforms: ["Snapchat", "Facebook"]
@@ -82,12 +82,13 @@ export default function Results() {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.button 
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-coral group-hover:border-coral transition-colors duration-300"
-                >
-                  <Play className="fill-white text-white ml-1" size={24} />
-                </motion.button>
+  whileHover={{ scale: 1.1 }} 
+  whileTap={{ scale: 0.9 }}
+  onClick={() => window.open(project.videoUrl, "_blank")}
+  className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-coral group-hover:border-coral transition-colors duration-300"
+>
+  <Play className="fill-white text-white ml-1" size={24} />
+</motion.button>
               </div>
               
               <div className="absolute top-4 left-4 flex gap-2">

@@ -26,7 +26,7 @@ import { Play, ExternalLink, Users, Video, BarChart3, ArrowRight } from 'lucide-
 const projects = [
   {
     id: 1,
-    title: "Gaming Highlights Series",         // CHANGE: project title
+    title: "GGGGGGGGGGGGGG",         // CHANGE: project title
     creator: "Placeholder Creator 1",           // CHANGE: creator name
     thumbnail: "/image1.jpg",                   // CHANGE: thumbnail URL or local path
     videoUrl: "https://www.facebook.com/watch/?v=792110205219679", // CHANGE: video link

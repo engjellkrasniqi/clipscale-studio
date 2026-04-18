@@ -2,12 +2,21 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play, CheckCircle2, TrendingUp, Zap, Layers, BarChart3 } from 'lucide-react';
 
+// ============================================================
+//  HOME PAGE — EDITABLE CONTENT
+//
+//  Most of this page is design/layout. The sections below
+//  marked with "CHANGE" are the ones you'll want to update
+//  as your business grows (stats, services, steps, etc).
+//
+//  For video/thumbnail changes → see Results.jsx
+// ============================================================
+
 export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* HERO */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-[2%] py-[140px] overflow-hidden bg-linear-to-br from-[#fff8f0] via-[#fce4ff] to-[#dff6ff]">
-        {/* Blob decorations */}
         <div className="absolute top-[-150px] left-[-150px] w-[600px] h-[600px] bg-radial-to-c from-orange to-coral rounded-full blur-[80px] opacity-45 pointer-events-none" />
         <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-radial-to-c from-indigo to-sky rounded-full blur-[80px] opacity-45 pointer-events-none" />
 
@@ -17,6 +26,7 @@ export default function Home() {
           className="relative z-1 inline-flex items-center gap-2 bg-white border border-coral/25 px-[18px] py-[7px] rounded-full text-[0.78rem] font-semibold tracking-[0.08em] uppercase text-coral mb-8 shadow-lg shadow-coral/10"
         >
           <span className="w-[7px] h-[7px] bg-coral rounded-full animate-pulse-custom" />
+          {/* CHANGE: top pill label text */}
           Revenue-Focused Content Scaling
         </motion.div>
 
@@ -26,6 +36,7 @@ export default function Home() {
           transition={{ delay: 0.1 }}
           className="relative z-1 text-[clamp(2.5rem,5vw,5.2rem)] font-black leading-[1.04] tracking-[-0.03em] text-charcoal max-w-none"
         >
+          {/* CHANGE: hero headline */}
           Turn Your YouTube Content <br /> Into a Multi-Platform <br />
           <span className="text-gradient-coral">Revenue Machine</span>
         </motion.h1>
@@ -36,6 +47,7 @@ export default function Home() {
           transition={{ delay: 0.2 }}
           className="relative z-1 text-[clamp(1rem,1.8vw,1.2rem)] text-muted max-w-[600px] leading-[1.7] mt-7 font-light"
         >
+          {/* CHANGE: hero subheading */}
           ClipScale takes your existing videos and deploys them across Facebook, TikTok, and Snapchat — turning content you already have into new income streams.
         </motion.p>
 
@@ -46,13 +58,18 @@ export default function Home() {
           className="relative z-1 flex flex-wrap justify-center gap-3.5 mt-11"
         >
           <Link to="/#cta" className="bg-gradient-coral text-white px-9 py-4 rounded-full font-syne font-bold text-base tracking-tight shadow-2xl shadow-coral/35 hover:translate-y-[-3px] hover:shadow-coral/40 transition-all">
+            {/* CHANGE: primary CTA button text */}
             Let's Scale Your Content
           </Link>
           <Link to="/results" className="bg-white/90 text-charcoal px-9 py-4 rounded-full border border-black/10 font-syne font-bold text-base tracking-tight backdrop-blur-md hover:translate-y-[-3px] hover:shadow-lg hover:border-black/20 transition-all">
+            {/* CHANGE: secondary CTA button text */}
             See Our Results
           </Link>
         </motion.div>
 
+        {/* -------------------------------------------------------
+            HERO STATS — update these as your numbers grow
+        ------------------------------------------------------- */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,29 +77,42 @@ export default function Home() {
           className="relative z-1 flex flex-wrap justify-center items-center gap-10 mt-14"
         >
           <div className="flex flex-col items-center">
-            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">4,000+</span>
-            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">Videos Deployed</span>
+            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">
+              4,000+  {/* CHANGE: stat number */}
+            </span>
+            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">
+              Videos Deployed  {/* CHANGE: stat label */}
+            </span>
           </div>
           <div className="w-[1px] h-10 bg-black/10 hidden sm:block" />
           <div className="flex flex-col items-center">
-            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">2B+</span>
-            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">Views Generated</span>
+            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">
+              2B+  {/* CHANGE: stat number */}
+            </span>
+            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">
+              Views Generated  {/* CHANGE: stat label */}
+            </span>
           </div>
           <div className="w-[1px] h-10 bg-black/10 hidden sm:block" />
           <div className="flex flex-col items-center">
-            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">150+</span>
-            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">Creators Scaled</span>
+            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">
+              150+  {/* CHANGE: stat number */}
+            </span>
+            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">
+              Creators Scaled  {/* CHANGE: stat label */}
+            </span>
           </div>
         </motion.div>
       </section>
 
-      {/* MARQUEE */}
+      {/* MARQUEE — scrolling text banner */}
       <div className="bg-charcoal py-[18px] overflow-hidden relative">
         <div className="absolute inset-y-0 left-0 w-20 bg-linear-to-r from-charcoal to-transparent z-2 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-20 bg-linear-to-l from-charcoal to-transparent z-2 pointer-events-none" />
         <div className="flex w-max animate-marquee">
           {[1, 2].map((i) => (
             <div key={i} className="flex items-center">
+              {/* CHANGE: marquee text items — update labels as needed */}
               <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-coral">Multi-Platform Monetization <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
               <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-amber">Revenue Expansion <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
               <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-teal">Facebook Licensing <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
@@ -107,12 +137,15 @@ export default function Home() {
               The Problem
             </div>
             <h2 className="text-[clamp(2rem,4vw,3.4rem)] font-extrabold tracking-[-0.03em] leading-[1.1] text-charcoal mb-7">
+              {/* CHANGE: problem section headline */}
               You're only monetizing a <em className="not-italic text-coral">fraction</em> of your content
             </h2>
             <p className="text-[1.05rem] leading-[1.8] text-muted mb-4 font-light">
+              {/* CHANGE: problem paragraph 1 */}
               Most YouTube creators earn exclusively from their main channel — while the same content could be generating revenue on three other platforms <strong>right now.</strong>
             </p>
             <p className="text-[1.05rem] leading-[1.8] text-muted font-light">
+              {/* CHANGE: problem paragraph 2 */}
               Your content has more reach. More lifespan. <strong>More revenue potential.</strong> Without a system to deploy it everywhere, that money stays on the table.
             </p>
           </motion.div>
@@ -124,6 +157,7 @@ export default function Home() {
             className="bg-white rounded-[24px] p-9 shadow-2xl shadow-black/10 border border-black/5"
           >
             <div className="text-[0.72rem] tracking-[0.08em] uppercase text-muted font-semibold mb-5">Revenue by platform — typical creator</div>
+            {/* CHANGE: bar chart data — adjust pct values to match your claims */}
             {[
               { label: 'YouTube', pct: 88, color: 'bg-gradient-coral' },
               { label: 'Facebook', pct: 12, color: 'bg-gradient-indigo' },
@@ -158,16 +192,20 @@ export default function Home() {
             The Solution
           </div>
           <h2 className="text-[clamp(2rem,4vw,3.4rem)] font-extrabold tracking-[-0.03em] leading-[1.1] text-white mb-7 max-w-[700px]">
+            {/* CHANGE: solution headline */}
             We build your content <em className="not-italic text-teal">monetization engine</em>
           </h2>
           <p className="text-[1.05rem] leading-[1.8] text-white/60 max-w-[560px] mb-4 font-light">
+            {/* CHANGE: solution paragraph 1 */}
             ClipScale takes your YouTube content and deploys it across the highest-revenue social platforms. We handle everything — distribution, page management, and monetization strategy.
           </p>
           <p className="text-[1.05rem] leading-[1.8] text-white/60 max-w-[560px] mb-16 font-light">
+            {/* CHANGE: solution paragraph 2 */}
             <strong>We don't edit for YouTube. We take what you already have and make it earn more.</strong>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* CHANGE: platform cards — update title, desc, tag as needed */}
             {[
               { id: 'fb', icon: 'fb', title: 'Facebook', desc: 'The single most powerful platform for video monetization. We manage your page, optimize for Facebook Ad Breaks, and unlock content licensing revenue.', tag: 'Highest Rev Potential', color: 'indigo' },
               { id: 'tk', icon: 'TK', title: 'TikTok', desc: 'Massive organic reach with Creator Fund and TikTok Series monetization. We handle repurposing and consistent publishing to grow your presence fast.', tag: 'Organic Reach', color: 'violet' },
@@ -201,13 +239,16 @@ export default function Home() {
             How It Works
           </div>
           <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold tracking-[-0.03em] text-charcoal mb-4">
+            {/* CHANGE: how it works headline */}
             Four steps.<br /> Zero extra work for you.
           </h2>
           <p className="text-base text-muted max-w-[480px] leading-[1.7] mb-16">
+            {/* CHANGE: how it works subheading */}
             You keep creating. We turn every video into a multi-platform revenue asset.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* CHANGE: steps — update name, title, desc for each of the 4 steps */}
             {[
               { num: '01', name: 'Analysis', title: 'We audit your content', desc: 'We analyze your existing videos to identify top-performing moments and the highest monetization opportunities across platforms.', color: 'coral' },
               { num: '02', name: 'Repurposing', title: 'Content gets reshaped', desc: 'We adapt your videos into platform-native formats — optimized for Facebook\'s algorithm, TikTok\'s feed, and Snapchat\'s Spotlight.', color: 'indigo' },
@@ -239,6 +280,7 @@ export default function Home() {
               <Zap className="text-white" size={18} />
             </div>
             <p className="text-[0.9rem] text-ink font-normal leading-[1.6]">
+              {/* CHANGE: bottom banner text */}
               <strong>You stay focused on creating.</strong> We handle distribution, page management, and scaling across every platform.
             </p>
           </div>
@@ -253,10 +295,12 @@ export default function Home() {
             Services
           </div>
           <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold tracking-[-0.03em] text-charcoal mb-14 max-w-[600px]">
+            {/* CHANGE: services headline */}
             Everything needed to <em className="not-italic text-orange">scale your revenue</em> across platforms
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* CHANGE: service cards — update title and desc for each */}
             {[
               { title: 'Content Repurposing', desc: 'Your YouTube videos transformed into platform-native formats for Facebook, TikTok, and Snapchat.', color: 'coral' },
               { title: 'Multi-Platform Publishing', desc: 'Consistent, strategic content deployment across all three platforms on an optimized schedule.', color: 'indigo' },
@@ -288,9 +332,11 @@ export default function Home() {
             Results
           </div>
           <h2 className="text-[clamp(2rem,4vw,3.4rem)] font-extrabold tracking-[-0.03em] text-white mb-16">
+            {/* CHANGE: results section headline */}
             Proven growth across <br /> every platform
           </h2>
 
+          {/* CHANGE: big metric numbers — update as your real numbers grow */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[
               { num: '3.2x', label: 'Average Revenue Increase', color: 'coral' },
@@ -307,6 +353,7 @@ export default function Home() {
             ))}
           </div>
 
+          {/* CHANGE: dashboard preview numbers — update to reflect real data */}
           <div className="bg-white/5 border border-white/10 rounded-[24px] p-7 overflow-hidden">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
@@ -316,9 +363,9 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
               {[
-                { label: 'Total Revenue', val: '$142,500', trend: '+24%', color: 'up' },
-                { label: 'New Followers', val: '842K', trend: '+18%', color: 'up' },
-                { label: 'Engagement', val: '12.4%', trend: '+4%', color: 'med' },
+                { label: 'Total Revenue', val: '$142,500', trend: '+24%', color: 'up' },   // CHANGE
+                { label: 'New Followers', val: '842K', trend: '+18%', color: 'up' },        // CHANGE
+                { label: 'Engagement', val: '12.4%', trend: '+4%', color: 'med' },          // CHANGE
               ].map((card) => (
                 <div key={card.label} className="bg-white/5 rounded-[14px] p-5 border border-white/10">
                   <div className="text-[0.68rem] text-white/40 tracking-[0.07em] uppercase mb-2.5">{card.label}</div>
@@ -346,12 +393,15 @@ export default function Home() {
             Ready to Scale
           </div>
           <h2 className="text-[clamp(2.4rem,5vw,4.2rem)] font-extrabold tracking-[-0.04em] text-white leading-[1.06] mb-5">
+            {/* CHANGE: final CTA headline */}
             Stop leaving <em className="not-italic text-amber">revenue</em> on the table
           </h2>
           <p className="text-[1.05rem] text-white/60 mb-12 leading-[1.7]">
+            {/* CHANGE: final CTA subtext */}
             Your content is already done. Let's make it earn across every platform it should be on.
           </p>
           <button className="bg-gradient-coral text-white text-lg px-12 py-5 rounded-full font-syne font-extrabold shadow-2xl shadow-coral/40 hover:translate-y-[-4px] transition-all">
+            {/* CHANGE: final CTA button text */}
             Let's Scale Your Content
           </button>
         </div>

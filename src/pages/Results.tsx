@@ -1,44 +1,70 @@
 import { motion } from 'motion/react';
 import { Play, ExternalLink, Users, Video, BarChart3, ArrowRight } from 'lucide-react';
 
+// ============================================================
+//  EDIT YOUR PORTFOLIO PROJECTS HERE
+//  Each object = one project card on the page.
+//
+//  HOW TO UPDATE:
+//  - "thumbnail": paste the URL of the thumbnail image
+//      e.g. "https://i.ytimg.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg"
+//      or a local path like "/images/project1.jpg"
+//
+//  - "videoUrl": paste the URL that opens when the play button is clicked
+//      Facebook: "https://www.facebook.com/watch/?v=YOUR_VIDEO_ID"
+//      YouTube:  "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+//      TikTok:   "https://www.tiktok.com/@handle/video/YOUR_VIDEO_ID"
+//
+//  - "title": the project/campaign name shown on the card
+//  - "creator": the creator or brand you worked with
+//  - "stats": the headline result (e.g. "45M+ Views")
+//  - "platforms": which platforms were used — ["Facebook", "TikTok", "Snapchat"]
+//
+//  ADD MORE PROJECTS: just copy one { ... } block, paste it below,
+//  and update the fields. Make sure to increment the "id".
+// ============================================================
 const projects = [
   {
     id: 1,
-    title: "Gaming Highlights Series",
-    creator: "Placeholder Creator 1",
-    thumbnail: "/images/image1.jpg",
-    videoUrl: "https://www.facebook.com/watch/?v=792110205219679",
-    stats: "45M+ Views",
-    platforms: ["Facebook", "TikTok"]
+    title: "Gaming Highlights Series",         // CHANGE: project title
+    creator: "Placeholder Creator 1",           // CHANGE: creator name
+    thumbnail: "/image1.jpg",                   // CHANGE: thumbnail URL or local path
+    videoUrl: "https://www.facebook.com/watch/?v=792110205219679", // CHANGE: video link
+    stats: "45M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook", "TikTok"]           // CHANGE: platforms used
   },
   {
     id: 2,
-    title: "Lifestyle Vlogs Scaling",
-    creator: "Placeholder Creator 2",
-    thumbnail: "/images/image1.jpg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    stats: "12M+ Views",
-    platforms: ["Snapchat", "Facebook"]
+    title: "Lifestyle Vlogs Scaling",           // CHANGE: project title
+    creator: "Placeholder Creator 2",           // CHANGE: creator name
+    thumbnail: "/images/image1.jpg",            // CHANGE: thumbnail URL or local path
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // CHANGE: video link
+    stats: "12M+ Views",                        // CHANGE: headline stat
+    platforms: ["Snapchat", "Facebook"]         // CHANGE: platforms used
   },
   {
     id: 3,
-    title: "Educational Content Engine",
-    creator: "Placeholder Creator 3",
-    thumbnail: "https://picsum.photos/seed/edu/800/450",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    stats: "8M+ Views",
-    platforms: ["TikTok", "Snapchat"]
+    title: "Educational Content Engine",        // CHANGE: project title
+    creator: "Placeholder Creator 3",           // CHANGE: creator name
+    thumbnail: "https://picsum.photos/seed/edu/800/450", // CHANGE: thumbnail URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // CHANGE: video link
+    stats: "8M+ Views",                         // CHANGE: headline stat
+    platforms: ["TikTok", "Snapchat"]           // CHANGE: platforms used
   },
   {
     id: 4,
-    title: "Tech Reviews Distribution",
-    creator: "Placeholder Creator 4",
-    thumbnail: "https://picsum.photos/seed/tech/800/450",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    stats: "20M+ Views",
-    platforms: ["Facebook", "TikTok", "Snapchat"]
+    title: "Tech Reviews Distribution",         // CHANGE: project title
+    creator: "Placeholder Creator 4",           // CHANGE: creator name
+    thumbnail: "https://picsum.photos/seed/tech/800/450", // CHANGE: thumbnail URL
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // CHANGE: video link
+    stats: "20M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook", "TikTok", "Snapchat"] // CHANGE: platforms used
   }
 ];
+// ============================================================
+//  END OF EDITABLE SECTION — don't edit below unless you want
+//  to change the layout or design.
+// ============================================================
 
 export default function Results() {
   return (
@@ -72,7 +98,7 @@ export default function Results() {
             transition={{ delay: idx * 0.1 }}
             className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500"
           >
-            {/* Video Placeholder / Thumbnail */}
+            {/* Thumbnail + Play Button */}
             <div className="relative aspect-video bg-black overflow-hidden">
               <img 
                 src={project.thumbnail} 
@@ -82,13 +108,13 @@ export default function Results() {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.button 
-  whileHover={{ scale: 1.1 }} 
-  whileTap={{ scale: 0.9 }}
-  onClick={() => window.open(project.videoUrl, "_blank")}
-  className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-coral group-hover:border-coral transition-colors duration-300"
->
-  <Play className="fill-white text-white ml-1" size={24} />
-</motion.button>
+                  whileHover={{ scale: 1.1 }} 
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => window.open(project.videoUrl, "_blank")}
+                  className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-coral group-hover:border-coral transition-colors duration-300"
+                >
+                  <Play className="fill-white text-white ml-1" size={24} />
+                </motion.button>
               </div>
               
               <div className="absolute top-4 left-4 flex gap-2">
@@ -139,7 +165,7 @@ export default function Results() {
         ))}
       </div>
 
-      {/* CTA Section for Results Page */}
+      {/* CTA */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

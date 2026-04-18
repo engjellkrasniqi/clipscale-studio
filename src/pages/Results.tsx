@@ -28,7 +28,7 @@ const projects = [
     id: 1,
     title: "GGGGGGGGGGGGGG",         // CHANGE: project title
     creator: "Placeholder Creator 1",           // CHANGE: creator name
-    thumbnail: "/image1.jpg",                   // CHANGE: thumbnail URL or local path
+    thumbnail: "/image1.png",                   // CHANGE: thumbnail URL or local path
     videoUrl: "https://www.facebook.com/watch/?v=792110205219679", // CHANGE: video link
     stats: "45M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook", "TikTok"]           // CHANGE: platforms used

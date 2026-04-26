@@ -26,12 +26,12 @@ import { Play, ExternalLink, Users, Video, BarChart3, ArrowRight } from 'lucide-
 const projects = [
   {
     id: 1,
-    title: "GGGGGGGGGGGGGG",         // CHANGE: project title
-    creator: "Placeholder Creator 1",           // CHANGE: creator name
+    title: "True Crime",         // CHANGE: project title
+    creator: "True 911 Calls",           // CHANGE: creator name
     thumbnail: "/image1.png",                   // CHANGE: thumbnail URL or local path
     videoUrl: "https://www.facebook.com/watch/?v=792110205219679", // CHANGE: video link
-    stats: "45M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook", "TikTok"]           // CHANGE: platforms used
+    stats: "2.7+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook"]           // CHANGE: platforms used
   },
   {
     id: 2,

@@ -39,7 +39,7 @@ const projects = [
     creator: "Dean Schneider",           // CHANGE: creator name
     thumbnail: "/image2.png",            // CHANGE: thumbnail URL or local path
     videoUrl: "https://www.facebook.com/share/r/1V5eD7axet/", // CHANGE: video link
-    stats: "12M+ Views",                        // CHANGE: headline stat
+    stats: "9M+ Views",                        // CHANGE: headline stat
     platforms: ["Snapchat", "Facebook"]         // CHANGE: platforms used
   },
   {

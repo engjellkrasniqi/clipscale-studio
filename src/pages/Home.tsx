@@ -323,67 +323,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RESULTS PREVIEW */}
-      <section id="results" className="bg-linear-to-br from-[#0D1B2A] via-[#1A1A2E] to-[#0F2A24] py-28 px-[6%] relative overflow-hidden">
-        <div className="absolute inset-0 bg-radial-to-c from-indigo/20 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto relative z-1">
-          <div className="inline-flex items-center gap-2 text-[0.74rem] font-bold tracking-[0.12em] uppercase text-amber mb-5">
-            <span className="w-5 h-[2px] bg-amber rounded-full" />
-            Results
-          </div>
-          <h2 className="text-[clamp(2rem,4vw,3.4rem)] font-extrabold tracking-[-0.03em] text-white mb-16">
-            {/* CHANGE: results section headline */}
-            Proven growth across <br /> every platform
-          </h2>
-
-          {/* CHANGE: big metric numbers — update as your real numbers grow */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {[
-              { num: '3.2x', label: 'Average Revenue Increase', color: 'coral' },
-              { num: '450M+', label: 'Monthly Impressions', color: 'teal' },
-              { num: '85%', label: 'Retention Rate', color: 'violet' },
-            ].map((metric) => (
-              <div key={metric.label} className="bg-white/5 border border-white/10 rounded-[24px] p-10 text-center relative overflow-hidden group">
-                <div className={`absolute inset-0 bg-gradient-${metric.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
-                <div className={`font-syne text-[clamp(2.5rem,5vw,3.8rem)] font-extrabold tracking-[-0.04em] leading-none mb-3 text-${metric.color}`}>
-                  {metric.num}
-                </div>
-                <div className="text-[0.9rem] text-white/60 font-normal">{metric.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* CHANGE: dashboard preview numbers — update to reflect real data */}
-          <div className="bg-white/5 border border-white/10 rounded-[24px] p-7 overflow-hidden">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#28CA41]" />
-              <div className="text-[0.8rem] text-white/40 ml-auto font-medium tracking-widest uppercase">Analytics Dashboard</div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-              {[
-                { label: 'Total Revenue', val: '$142,500', trend: '+24%', color: 'up' },   // CHANGE
-                { label: 'New Followers', val: '842K', trend: '+18%', color: 'up' },        // CHANGE
-                { label: 'Engagement', val: '12.4%', trend: '+4%', color: 'med' },          // CHANGE
-              ].map((card) => (
-                <div key={card.label} className="bg-white/5 rounded-[14px] p-5 border border-white/10">
-                  <div className="text-[0.68rem] text-white/40 tracking-[0.07em] uppercase mb-2.5">{card.label}</div>
-                  <div className="font-syne text-2xl font-extrabold text-white mb-1.5">{card.val}</div>
-                  <div className={`text-[0.75rem] font-semibold ${card.color === 'up' ? 'text-teal' : 'text-amber'}`}>{card.trend} this month</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="mt-12 text-center">
-            <Link to="/results" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold uppercase tracking-widest text-sm">
-              View Full Portfolio <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
       <section id="cta" className="bg-charcoal text-center relative overflow-hidden py-36 px-[6%]">
         <div className="absolute inset-0 bg-radial-to-t from-coral/20 via-transparent to-transparent pointer-events-none" />

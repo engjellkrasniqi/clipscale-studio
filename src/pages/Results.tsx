@@ -35,10 +35,10 @@ const projects = [
   },
   {
     id: 2,
-    title: "Lifestyle Vlogs Scaling",           // CHANGE: project title
-    creator: "Placeholder Creator 2",           // CHANGE: creator name
-    thumbnail: "/images/image1.jpg",            // CHANGE: thumbnail URL or local path
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // CHANGE: video link
+    title: "Wildlife",           // CHANGE: project title
+    creator: "Dean Schneider",           // CHANGE: creator name
+    thumbnail: "/image2.png",            // CHANGE: thumbnail URL or local path
+    videoUrl: "https://www.facebook.com/share/r/1V5eD7axet/", // CHANGE: video link
     stats: "12M+ Views",                        // CHANGE: headline stat
     platforms: ["Snapchat", "Facebook"]         // CHANGE: platforms used
   },

@@ -22,12 +22,12 @@ export default function Navbar() {
     >
       {/* Logo */}
       <Link to="/" className="flex items-center">
-        <img
-          src="/logo.png"
-          alt="ClipScale Studio logo"
-          className="h-16 md:h-20 w-auto object-contain -my-3"
-        />
-      </Link>
+  <img
+    src="/logo.png"
+    alt="ClipScale Studio logo"
+    className="h-20 md:h-24 w-auto object-contain -my-5"
+  />
+</Link>
 
       {/* Nav Links */}
       <ul className="hidden md:flex gap-9 list-none">

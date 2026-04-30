@@ -1,228 +1,416 @@
+// ============================================================
+//  HOME PAGE — CLIP SCALE STUDIO (BRAND-UPDATED)
+//
+//  BRAND CHANGES SUMMARY:
+//  1. COLOR PALETTE — Extracted from logo:
+//     - Primary orange: #E8500A (logo orange)
+//     - Background: #0A0A0A (logo black)
+//     - Surface: #141414 (slightly lighter dark)
+//     - White: #FFFFFF
+//     - Muted: rgba(255,255,255,0.45)
+//     All "coral", "indigo", "teal", "amber", "violet" utility
+//     classes replaced with CSS custom property tokens that map
+//     to the brand palette (orange + white on black).
+//
+//  2. TYPOGRAPHY — Changed to "Zen Dots" (as requested).
+//     Zen Dots is a bold, geometric display font that matches
+//     the logo's sharp, angular identity perfectly.
+//     Add this to your <head> in index.html:
+//       <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+//     All font-syne classes replaced with font-zen-dots.
+//     Body/paragraph text uses system sans for readability.
+//
+//  3. BUTTONS — Solid orange fills replace coral gradients.
+//     Sharp, high-contrast, matches logo energy.
+//
+//  4. SHAPES & BORDERS — Rounded corners reduced (less bubbly,
+//     more angular to match the geometric logo mark).
+//     Border colors changed to orange/20 opacity.
+//
+//  5. GLOWS / BLOBS — Changed from pastel multicolor blobs to
+//     single-color deep orange glows on dark — more on-brand.
+//
+//  ============================================================
+//
+//  FAVICON INSTRUCTIONS:
+//  ──────────────────────────────────────────────────────────
+//  In your project's /public folder, place your logo file as:
+//    /public/favicon.ico        (32×32 or 64×64 .ico)
+//    /public/favicon.png        (any size .png works too)
+//
+//  Then in index.html <head>, add/replace:
+//
+//    <!-- FAVICON — replace href with your logo file path -->
+//    <link rel="icon" type="image/png" href="/favicon.png" />
+//    <link rel="shortcut icon" href="/favicon.ico" />
+//    <link rel="apple-touch-icon" href="/favicon.png" />
+//
+//  To convert ClipScaleStudio_Identity.png → favicon:
+//    Use https://realfavicongenerator.net  (free, paste your PNG)
+//    Or: crop to square, export as 64×64 PNG, save to /public/
+//  ──────────────────────────────────────────────────────────
+
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, CheckCircle2, TrendingUp, Zap, Layers, BarChart3 } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
-// ============================================================
-//  HOME PAGE — EDITABLE CONTENT
-//
-//  Most of this page is design/layout. The sections below
-//  marked with "CHANGE" are the ones you'll want to update
-//  as your business grows (stats, services, steps, etc).
-//
-//  For video/thumbnail changes → see Results.jsx
-// ============================================================
+// ─── BRAND TOKEN CONSTANTS ────────────────────────────────────
+// CHANGE: All brand colors live here. Update once, applies everywhere.
+const B = {
+  orange:       '#f15a24',   // logo primary orange
+  orangeLight:  '#FF6B28',   // slightly brighter orange for hover/glow
+  orangeDim:    'rgba(232,80,10,0.15)',
+  orangeBorder: 'rgba(232,80,10,0.25)',
+  bg:           '#0A0A0A',   // logo black
+  surface:      '#141414',   // card background
+  surface2:     '#1C1C1C',   // slightly lighter surface
+  border:       'rgba(255,255,255,0.08)',
+  white:        '#FFFFFF',
+  muted:        'rgba(255,255,255,0.45)',
+  mutedLight:   'rgba(255,255,255,0.65)',
+};
+
+// ─── INLINE STYLE HELPERS ────────────────────────────────────
+// CHANGE: Replaced Tailwind gradient classes (bg-gradient-coral etc.)
+// with inline styles using brand tokens. More reliable cross-env.
+const styles = {
+  // CHANGE: Hero gradient — dark with deep orange glow, not pastel rainbow
+  heroBg: {
+    background: `radial-gradient(ellipse 80% 60% at 15% 40%, rgba(232,80,10,0.18) 0%, transparent 60%),
+                 radial-gradient(ellipse 60% 50% at 85% 70%, rgba(232,80,10,0.10) 0%, transparent 55%),
+                 ${B.bg}`,
+  },
+  // CHANGE: Orange pill badge
+  pill: {
+    background: B.orangeDim,
+    border: `1px solid ${B.orangeBorder}`,
+    color: B.orange,
+  },
+  // CHANGE: Solid orange CTA button (replaces coral gradient)
+  btnPrimary: {
+    background: B.orange,
+    color: B.white,
+    border: 'none',
+    transition: 'all 0.2s ease',
+  },
+  // CHANGE: Ghost secondary button on dark bg
+  btnSecondary: {
+    background: 'rgba(255,255,255,0.04)',
+    color: B.white,
+    border: `1px solid rgba(255,255,255,0.15)`,
+  },
+  // CHANGE: Dark card surface (replaces white cards)
+  card: {
+    background: B.surface,
+    border: `1px solid ${B.border}`,
+    borderRadius: '12px',   // CHANGE: less rounded = more angular/brand-aligned
+  },
+  // CHANGE: Marquee bar matches logo black
+  marqueeBg: { background: B.surface2 },
+  // CHANGE: Section backgrounds — all dark, consistent brand
+  sectionDark: { background: B.bg },
+  sectionDark2: { background: B.surface },
+  // CHANGE: Stat gradient — orange instead of indigo-to-teal
+  statGradient: {
+    background: `linear-gradient(135deg, ${B.orange}, ${B.orangeLight})`,
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+  },
+  // CHANGE: Step number badge
+  stepBadge: {
+    background: B.orange,
+    color: B.white,
+    borderRadius: '8px',
+  },
+  // CHANGE: Orange accent dot for service cards
+  dot: {
+    background: B.orange,
+    width: 10,
+    height: 10,
+    borderRadius: '2px',  // CHANGE: square dot matches angular logo geometry
+    marginBottom: 20,
+  },
+  // CHANGE: Info banner — orange-tinted on dark
+  infoBanner: {
+    background: `rgba(232,80,10,0.08)`,
+    border: `1px solid rgba(232,80,10,0.2)`,
+    borderRadius: '10px',
+  },
+  zapIcon: {
+    background: B.orange,
+    borderRadius: '8px',
+    width: 40,
+    height: 40,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
+};
+
+// ─── FONT INJECTION ───────────────────────────────────────────
+// CHANGE: Injects Zen Dots font if not already in <head>.
+// In production, move this to index.html <head> instead.
+if (typeof document !== 'undefined' && !document.getElementById('zen-dots-font')) {
+  const link = document.createElement('link');
+  link.id = 'zen-dots-font';
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap';
+  document.head.appendChild(link);
+}
+
+// CHANGE: Zen Dots applied to all display/heading text.
+// WHY: Zen Dots is geometric + angular, matching the CSS "S" mark in the logo.
+const zenDots = { fontFamily: "'Zen Dots', sans-serif" };
+
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden">
-      {/* HERO */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-[2%] py-[140px] overflow-hidden bg-linear-to-br from-[#fff8f0] via-[#fce4ff] to-[#dff6ff]">
-        <div className="absolute top-[-150px] left-[-150px] w-[600px] h-[600px] bg-radial-to-c from-orange to-coral rounded-full blur-[80px] opacity-45 pointer-events-none" />
-        <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-radial-to-c from-indigo to-sky rounded-full blur-[80px] opacity-45 pointer-events-none" />
+    // CHANGE: Page background is now brand black throughout
+    <div className="overflow-x-hidden" style={{ background: B.bg, color: B.white }}>
 
-        <motion.div 
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section
+        className="relative min-h-screen flex flex-col items-center justify-center text-center px-[2%] py-[140px] overflow-hidden"
+        style={styles.heroBg}
+      >
+        {/* CHANGE: Single orange glow blob replaces dual pastel blobs */}
+        <div style={{
+          position: 'absolute', top: '-100px', left: '-100px',
+          width: 500, height: 500, borderRadius: '50%',
+          background: `radial-gradient(circle, rgba(232,80,10,0.22) 0%, transparent 70%)`,
+          pointerEvents: 'none',
+        }} />
+
+        {/* CHANGE: Pill uses orange brand token */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative z-1 inline-flex items-center gap-2 bg-white border border-coral/25 px-[18px] py-[7px] rounded-full text-[0.78rem] font-semibold tracking-[0.08em] uppercase text-coral mb-8 shadow-lg shadow-coral/10"
+          className="relative z-10 inline-flex items-center gap-2 px-[18px] py-[7px] rounded-full text-[0.78rem] font-semibold tracking-[0.08em] uppercase mb-8"
+          style={{ ...styles.pill, ...zenDots }}
         >
-          <span className="w-[7px] h-[7px] bg-coral rounded-full animate-pulse-custom" />
-          {/* CHANGE: top pill label text */}
+          <span style={{ width: 7, height: 7, background: B.orange, borderRadius: '50%', animation: 'pulse 2s infinite' }} />
           Revenue-Focused Content Scaling
         </motion.div>
 
-        <motion.h1 
+        {/* CHANGE: Headline uses Zen Dots — angular, matches logo */}
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="relative z-1 text-[clamp(2.5rem,5vw,5.2rem)] font-black leading-[1.04] tracking-[-0.03em] text-charcoal max-w-none"
+          className="relative z-10"
+          style={{
+            ...zenDots,
+            fontSize: 'clamp(2.2rem, 4.5vw, 4.8rem)',
+            fontWeight: 400,  // Zen Dots has no weight variants; 400 is its bold
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+            color: B.white,
+            maxWidth: 900,
+          }}
         >
-          {/* CHANGE: hero headline */}
-          Turn Your YouTube Content <br /> Into a Multi-Platform <br />
-          <span className="text-gradient-coral">Revenue Machine</span>
+          Turn Your YouTube Content{' '}
+          <br />Into a Multi-Platform{' '}
+          <br />
+          {/* CHANGE: Accent color is brand orange, not coral gradient */}
+          <span style={{ color: B.orange }}>Revenue Machine</span>
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="relative z-1 text-[clamp(1rem,1.8vw,1.2rem)] text-muted max-w-[600px] leading-[1.7] mt-7 font-light"
+          className="relative z-10"
+          style={{
+            fontSize: 'clamp(1rem,1.6vw,1.15rem)',
+            color: B.muted,
+            maxWidth: 580,
+            lineHeight: 1.75,
+            marginTop: 28,
+            fontWeight: 300,
+          }}
         >
-          {/* CHANGE: hero subheading */}
           ClipScale takes your existing videos and deploys them across Facebook, TikTok, and Snapchat — turning content you already have into new income streams.
         </motion.p>
 
-        <motion.div 
+        {/* CHANGE: Buttons — orange solid primary, ghost secondary */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="relative z-1 flex flex-wrap justify-center gap-3.5 mt-11"
+          className="relative z-10 flex flex-wrap justify-center gap-3.5 mt-11"
         >
-          <Link to="/#cta" className="bg-gradient-coral text-white px-9 py-4 rounded-full font-syne font-bold text-base tracking-tight shadow-2xl shadow-coral/35 hover:translate-y-[-3px] hover:shadow-coral/40 transition-all">
-            {/* CHANGE: primary CTA button text */}
+          <Link
+            to="/#cta"
+            className="px-9 py-4 rounded-lg font-bold text-base tracking-tight transition-all hover:opacity-90 hover:-translate-y-[3px]"
+            style={{ ...styles.btnPrimary, ...zenDots, borderRadius: 8 }}
+          >
             Let's Scale Your Content
           </Link>
-          <Link to="/results" className="bg-white/90 text-charcoal px-9 py-4 rounded-full border border-black/10 font-syne font-bold text-base tracking-tight backdrop-blur-md hover:translate-y-[-3px] hover:shadow-lg hover:border-black/20 transition-all">
-            {/* CHANGE: secondary CTA button text */}
+          <Link
+            to="/results"
+            className="px-9 py-4 rounded-lg font-bold text-base tracking-tight transition-all hover:-translate-y-[3px] hover:border-white/30"
+            style={{ ...styles.btnSecondary, ...zenDots, borderRadius: 8 }}
+          >
             See Our Results
           </Link>
         </motion.div>
 
-        {/* -------------------------------------------------------
-            HERO STATS — update these as your numbers grow
-        ------------------------------------------------------- */}
-        <motion.div 
+        {/* CHANGE: Stats — orange gradient text instead of indigo-teal */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="relative z-1 flex flex-wrap justify-center items-center gap-10 mt-14"
+          className="relative z-10 flex flex-wrap justify-center items-center gap-10 mt-14"
         >
-          <div className="flex flex-col items-center">
-            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">
-              4,000+  {/* CHANGE: stat number */}
-            </span>
-            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">
-              Videos Deployed  {/* CHANGE: stat label */}
-            </span>
-          </div>
-          <div className="w-[1px] h-10 bg-black/10 hidden sm:block" />
-          <div className="flex flex-col items-center">
-            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">
-              2B+  {/* CHANGE: stat number */}
-            </span>
-            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">
-              Views Generated  {/* CHANGE: stat label */}
-            </span>
-          </div>
-          <div className="w-[1px] h-10 bg-black/10 hidden sm:block" />
-          <div className="flex flex-col items-center">
-            <span className="font-syne text-[1.8rem] font-extrabold bg-linear-to-br from-indigo to-teal bg-clip-text text-transparent leading-none">
-              150+  {/* CHANGE: stat number */}
-            </span>
-            <span className="text-[0.78rem] text-muted font-medium mt-1 tracking-wider">
-              Creators Scaled  {/* CHANGE: stat label */}
-            </span>
-          </div>
+          {[
+            { num: '4,000+', label: 'Videos Deployed' },
+            { num: '2B+',    label: 'Views Generated' },
+            { num: '150+',   label: 'Creators Scaled' },
+          ].map((stat, i) => (
+            <div key={stat.num} className="flex items-center gap-10">
+              <div className="flex flex-col items-center">
+                <span style={{ ...styles.statGradient, ...zenDots, fontSize: '1.9rem' }}>
+                  {stat.num}
+                </span>
+                <span style={{ fontSize: '0.75rem', color: B.muted, marginTop: 4, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  {stat.label}
+                </span>
+              </div>
+              {i < 2 && <div style={{ width: 1, height: 40, background: 'rgba(255,255,255,0.1)' }} className="hidden sm:block" />}
+            </div>
+          ))}
         </motion.div>
       </section>
 
-      {/* MARQUEE — scrolling text banner */}
-      <div className="bg-charcoal py-[18px] overflow-hidden relative">
-        <div className="absolute inset-y-0 left-0 w-20 bg-linear-to-r from-charcoal to-transparent z-2 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-20 bg-linear-to-l from-charcoal to-transparent z-2 pointer-events-none" />
+      {/* ── MARQUEE ──────────────────────────────────────────── */}
+      {/* CHANGE: Dark charcoal surface strip — consistent with logo black */}
+      <div className="py-[18px] overflow-hidden relative" style={styles.marqueeBg}>
+        <div style={{ position:'absolute',inset:'0 0 auto 0',height:'100%',left:0,width:80,background:`linear-gradient(to right, ${B.surface2}, transparent)`,zIndex:2 }} />
+        <div style={{ position:'absolute',inset:'0 auto 0 0',right:0,width:80,height:'100%',background:`linear-gradient(to left, ${B.surface2}, transparent)`,zIndex:2 }} />
         <div className="flex w-max animate-marquee">
           {[1, 2].map((i) => (
             <div key={i} className="flex items-center">
-              {/* CHANGE: marquee text items — update labels as needed */}
-              <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-coral">Multi-Platform Monetization <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
-              <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-amber">Revenue Expansion <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
-              <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-teal">Facebook Licensing <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
-              <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-sky">TikTok Distribution <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
-              <span className="flex items-center gap-4 px-9 font-syne font-bold text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap text-[#C084FC]">Snapchat Growth <span className="w-1.5 h-1.5 rounded-full bg-current opacity-40" /></span>
+              {/* CHANGE: All marquee items use orange — unified brand color, not rainbow */}
+              {['Multi-Platform Monetization','Revenue Expansion','Facebook Licensing','TikTok Distribution','Snapchat Growth'].map((text) => (
+                <span
+                  key={text}
+                  className="flex items-center gap-4 px-9 text-[0.85rem] tracking-[0.05em] uppercase whitespace-nowrap font-bold"
+                  style={{ ...zenDots, color: B.orange, fontSize: '0.78rem' }}
+                >
+                  {text}
+                  <span style={{ width: 5, height: 5, borderRadius: '50%', background: B.orange, opacity: 0.35 }} />
+                </span>
+              ))}
             </div>
           ))}
         </div>
       </div>
 
-      {/* PROBLEM */}
-      <section className="bg-linear-to-br from-[#fff6ed] to-[#fff0f9] py-28 px-[6%]">
+      {/* ── PROBLEM ──────────────────────────────────────────── */}
+      {/* CHANGE: Dark section replaces pastel warm gradient */}
+      <section className="py-28 px-[6%]" style={styles.sectionDark2}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="reveal"
           >
-            <div className="inline-flex items-center gap-2 text-[0.74rem] font-bold tracking-[0.12em] uppercase text-coral mb-5">
-              <span className="w-5 h-[2px] bg-coral rounded-full" />
+            {/* CHANGE: Section label uses orange + Zen Dots */}
+            <div className="inline-flex items-center gap-2 mb-5" style={{ ...zenDots, color: B.orange, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <span style={{ width: 20, height: 2, background: B.orange, borderRadius: 2 }} />
               The Problem
             </div>
-            <h2 className="text-[clamp(2rem,4vw,3.4rem)] font-extrabold tracking-[-0.03em] leading-[1.1] text-charcoal mb-7">
-              {/* CHANGE: problem section headline */}
-              You're only monetizing a <em className="not-italic text-coral">fraction</em> of your content
+            <h2 style={{ ...zenDots, fontSize: 'clamp(1.8rem,3.5vw,3rem)', fontWeight: 400, lineHeight: 1.12, letterSpacing: '-0.02em', color: B.white, marginBottom: 28 }}>
+              You're only monetizing a{' '}
+              {/* CHANGE: Emphasis color = brand orange */}
+              <em className="not-italic" style={{ color: B.orange }}>fraction</em>{' '}
+              of your content
             </h2>
-            <p className="text-[1.05rem] leading-[1.8] text-muted mb-4 font-light">
-              {/* CHANGE: problem paragraph 1 */}
-              Most YouTube creators earn exclusively from their main channel — while the same content could be generating revenue on three other platforms <strong>right now.</strong>
+            <p style={{ fontSize: '1.03rem', lineHeight: 1.8, color: B.muted, marginBottom: 16, fontWeight: 300 }}>
+              Most YouTube creators earn exclusively from their main channel — while the same content could be generating revenue on three other platforms <strong style={{ color: B.mutedLight }}>right now.</strong>
             </p>
-            <p className="text-[1.05rem] leading-[1.8] text-muted font-light">
-              {/* CHANGE: problem paragraph 2 */}
-              Your content has more reach. More lifespan. <strong>More revenue potential.</strong> Without a system to deploy it everywhere, that money stays on the table.
+            <p style={{ fontSize: '1.03rem', lineHeight: 1.8, color: B.muted, fontWeight: 300 }}>
+              Your content has more reach. More lifespan. <strong style={{ color: B.mutedLight }}>More revenue potential.</strong> Without a system to deploy it everywhere, that money stays on the table.
             </p>
           </motion.div>
-          
-          <motion.div 
+
+          {/* CHANGE: Bar chart card — dark surface, orange bars */}
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-[24px] p-9 shadow-2xl shadow-black/10 border border-black/5"
+            style={{ ...styles.card, padding: '36px', background: B.surface2 }}
           >
-            <div className="text-[0.72rem] tracking-[0.08em] uppercase text-muted font-semibold mb-5">Revenue by platform — typical creator</div>
-            {/* CHANGE: bar chart data — adjust pct values to match your claims */}
+            <div style={{ fontSize: '0.7rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: B.muted, marginBottom: 20, fontWeight: 600 }}>
+              Revenue by platform — typical creator
+            </div>
+            {/* CHANGE: All bars orange at varying opacity — brand-consistent vs multicolor */}
             {[
-              { label: 'YouTube', pct: 88, color: 'bg-gradient-coral' },
-              { label: 'Facebook', pct: 12, color: 'bg-gradient-indigo' },
-              { label: 'TikTok', pct: 8, color: 'bg-gradient-violet' },
-              { label: 'Snapchat', pct: 5, color: 'bg-gradient-teal' },
+              { label: 'YouTube',  pct: 88, opacity: 1.0 },
+              { label: 'Facebook', pct: 12, opacity: 0.7 },
+              { label: 'TikTok',   pct: 8,  opacity: 0.5 },
+              { label: 'Snapchat', pct: 5,  opacity: 0.35 },
             ].map((stat) => (
-              <div key={stat.label} className="flex items-center justify-between py-4.5 border-b border-black/5 last:border-0">
-                <span className="text-[0.9rem] text-muted font-normal w-20">{stat.label}</span>
-                <div className="flex-1 mx-5 h-2 bg-[#F0EDE8] rounded-full overflow-hidden">
-                  <motion.div 
+              <div key={stat.label} style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'16px 0', borderBottom:`1px solid ${B.border}` }}>
+                <span style={{ fontSize: '0.88rem', color: B.muted, width: 80 }}>{stat.label}</span>
+                <div style={{ flex:1, margin:'0 16px', height: 6, background:'rgba(255,255,255,0.07)', borderRadius: 4, overflow:'hidden' }}>
+                  <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${stat.pct}%` }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
-                    className={`h-full rounded-full ${stat.color}`} 
+                    transition={{ duration: 1.4, ease: 'easeOut' }}
+                    style={{ height:'100%', borderRadius: 4, background: B.orange, opacity: stat.opacity }}
                   />
                 </div>
-                <span className="font-syne font-bold text-[0.9rem] text-charcoal">{stat.pct}%</span>
+                <span style={{ ...zenDots, fontWeight: 400, fontSize: '0.88rem', color: B.white }}>{stat.pct}%</span>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* SOLUTION */}
-      <section className="bg-charcoal py-28 px-[6%] relative overflow-hidden">
-        <div className="absolute top-[-200px] right-[-200px] w-[700px] h-[700px] bg-radial-to-c from-indigo/25 to-transparent rounded-full pointer-events-none" />
-        <div className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] bg-radial-to-c from-teal/20 to-transparent rounded-full pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto relative z-1">
-          <div className="inline-flex items-center gap-2 text-[0.74rem] font-bold tracking-[0.12em] uppercase text-teal mb-5">
-            <span className="w-5 h-[2px] bg-teal rounded-full" />
+      {/* ── SOLUTION ─────────────────────────────────────────── */}
+      {/* CHANGE: Pure brand black section, orange glow top-right */}
+      <section className="py-28 px-[6%] relative overflow-hidden" style={styles.sectionDark}>
+        <div style={{ position:'absolute', top:-150, right:-150, width:600, height:600, borderRadius:'50%', background:`radial-gradient(circle, rgba(232,80,10,0.14) 0%, transparent 65%)`, pointerEvents:'none' }} />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="inline-flex items-center gap-2 mb-5" style={{ ...zenDots, color: B.orange, fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+            <span style={{ width: 20, height: 2, background: B.orange }} />
             The Solution
           </div>
-          <h2 className="text-[clamp(2rem,4vw,3.4rem)] font-extrabold tracking-[-0.03em] leading-[1.1] text-white mb-7 max-w-[700px]">
-            {/* CHANGE: solution headline */}
-            We build your content <em className="not-italic text-teal">monetization engine</em>
+          <h2 style={{ ...zenDots, fontSize: 'clamp(1.8rem,3.5vw,3rem)', fontWeight: 400, lineHeight: 1.12, color: B.white, marginBottom: 28, maxWidth: 680 }}>
+            We build your content{' '}
+            <em className="not-italic" style={{ color: B.orange }}>monetization engine</em>
           </h2>
-          <p className="text-[1.05rem] leading-[1.8] text-white/60 max-w-[560px] mb-4 font-light">
-            {/* CHANGE: solution paragraph 1 */}
+          <p style={{ fontSize: '1.03rem', lineHeight: 1.8, color: B.muted, maxWidth: 540, marginBottom: 16, fontWeight: 300 }}>
             ClipScale takes your YouTube content and deploys it across the highest-revenue social platforms. We handle everything — distribution, page management, and monetization strategy.
           </p>
-          <p className="text-[1.05rem] leading-[1.8] text-white/60 max-w-[560px] mb-16 font-light">
-            {/* CHANGE: solution paragraph 2 */}
-            <strong>We don't edit for YouTube. We take what you already have and make it earn more.</strong>
+          <p style={{ fontSize: '1.03rem', lineHeight: 1.8, color: B.muted, maxWidth: 540, marginBottom: 64, fontWeight: 300 }}>
+            <strong style={{ color: B.mutedLight }}>We don't edit for YouTube. We take what you already have and make it earn more.</strong>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* CHANGE: platform cards — update title, desc, tag as needed */}
+            {/* CHANGE: Platform cards — dark surface, orange accents only */}
             {[
-              { id: 'fb', icon: 'fb', title: 'Facebook', desc: 'The single most powerful platform for video monetization. We manage your page, optimize for Facebook Ad Breaks, and unlock content licensing revenue.', tag: 'Highest Rev Potential', color: 'indigo' },
-              { id: 'tk', icon: 'TK', title: 'TikTok', desc: 'Massive organic reach with Creator Fund and TikTok Series monetization. We handle repurposing and consistent publishing to grow your presence fast.', tag: 'Organic Reach', color: 'violet' },
-              { id: 'sc', icon: 'SC', title: 'Snapchat', desc: 'Snapchat Spotlight and Discover are underutilized revenue channels. We deploy your content there and tap into Snap\'s creator monetization programs.', tag: 'Underutilized Revenue', color: 'amber' },
+              { id:'fb', abbr:'FB', title:'Facebook',  desc:'The single most powerful platform for video monetization. We manage your page, optimize for Facebook Ad Breaks, and unlock content licensing revenue.', tag:'Highest Rev Potential' },
+              { id:'tk', abbr:'TK', title:'TikTok',    desc:'Massive organic reach with Creator Fund and TikTok Series monetization. We handle repurposing and consistent publishing to grow your presence fast.', tag:'Organic Reach' },
+              { id:'sc', abbr:'SC', title:'Snapchat',  desc:"Snapchat Spotlight and Discover are underutilized revenue channels. We deploy your content there and tap into Snap's creator monetization programs.", tag:'Underutilized Revenue' },
             ].map((card) => (
-              <motion.div 
+              <motion.div
                 key={card.id}
-                whileHover={{ y: -6 }}
-                className="bg-white/5 border border-white/10 rounded-[20px] p-8 relative overflow-hidden group"
+                whileHover={{ y: -6, borderColor: B.orangeBorder }}
+                style={{ ...styles.card, padding: 32, position:'relative', overflow:'hidden', transition:'all 0.25s ease' }}
               >
-                <div className={`absolute inset-0 bg-linear-to-br from-${card.color}/15 to-${card.color}/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                <div className={`relative z-1 w-[52px] h-[52px] rounded-[14px] flex items-center justify-center mb-5 font-syne font-extrabold text-[1.1rem] ${card.id === 'fb' ? 'bg-linear-to-br from-[#1877F2] to-indigo text-white' : card.id === 'tk' ? 'bg-linear-to-br from-[#010101] to-violet text-white' : 'bg-linear-to-br from-[#FFFC00] to-orange text-charcoal'}`}>
-                  {card.icon}
+                {/* CHANGE: Icon badge — all orange, brand-consistent (no platform brand colors) */}
+                <div style={{ ...zenDots, width:52, height:52, borderRadius:8, background:B.orange, display:'flex', alignItems:'center', justifyContent:'center', marginBottom:20, fontSize:'1rem', color:B.white, fontWeight:400 }}>
+                  {card.abbr}
                 </div>
-                <h3 className="relative z-1 text-[1.15rem] font-bold text-white mb-2.5">{card.title}</h3>
-                <p className="relative z-1 text-[0.88rem] text-white/55 leading-[1.7]">{card.desc}</p>
-                <span className={`relative z-1 inline-block mt-4 px-3 py-1.5 rounded-full text-[0.72rem] font-bold tracking-[0.06em] uppercase ${card.id === 'fb' ? 'bg-indigo/25 text-[#A5B4FF]' : card.id === 'tk' ? 'bg-violet/25 text-[#C084FC]' : 'bg-amber/20 text-amber'}`}>
+                <h3 style={{ ...zenDots, fontSize:'1.1rem', fontWeight:400, color:B.white, marginBottom:10 }}>{card.title}</h3>
+                <p style={{ fontSize:'0.87rem', color:B.muted, lineHeight:1.7 }}>{card.desc}</p>
+                {/* CHANGE: Tag uses orange border/text instead of platform-specific colors */}
+                <span style={{ display:'inline-block', marginTop:16, padding:'6px 12px', borderRadius:6, background:`rgba(232,80,10,0.12)`, color:B.orange, fontSize:'0.7rem', fontWeight:600, letterSpacing:'0.06em', textTransform:'uppercase', ...zenDots }}>
                   {card.tag}
                 </span>
               </motion.div>
@@ -231,120 +419,192 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section id="how" className="bg-linear-to-b from-[#f8f4ff] to-[#fff9f0] py-28 px-[6%]">
+      {/* ── HOW IT WORKS ─────────────────────────────────────── */}
+      <section id="how" className="py-28 px-[6%]" style={styles.sectionDark2}>
         <div className="max-w-7xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-[0.74rem] font-bold tracking-[0.12em] uppercase text-coral mb-5">
-            <span className="w-5 h-[2px] bg-coral rounded-full" />
+          <div className="inline-flex items-center gap-2 mb-5" style={{ ...zenDots, color:B.orange, fontSize:'0.72rem', letterSpacing:'0.12em', textTransform:'uppercase' }}>
+            <span style={{ width:20, height:2, background:B.orange }} />
             How It Works
           </div>
-          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold tracking-[-0.03em] text-charcoal mb-4">
-            {/* CHANGE: how it works headline */}
-            Four steps.<br /> Zero extra work for you.
+          <h2 style={{ ...zenDots, fontSize:'clamp(1.8rem,3.5vw,3rem)', fontWeight:400, lineHeight:1.12, color:B.white, marginBottom:16 }}>
+            Four steps.<br />Zero extra work for you.
           </h2>
-          <p className="text-base text-muted max-w-[480px] leading-[1.7] mb-16">
-            {/* CHANGE: how it works subheading */}
+          <p style={{ fontSize:'1rem', color:B.muted, maxWidth:480, lineHeight:1.7, marginBottom:56 }}>
             You keep creating. We turn every video into a multi-platform revenue asset.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* CHANGE: steps — update name, title, desc for each of the 4 steps */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { num: '01', name: 'Analysis', title: 'We audit your content', desc: 'We analyze your existing videos to identify top-performing moments and the highest monetization opportunities across platforms.', color: 'coral' },
-              { num: '02', name: 'Repurposing', title: 'Content gets reshaped', desc: 'We adapt your videos into platform-native formats — optimized for Facebook\'s algorithm, TikTok\'s feed, and Snapchat\'s Spotlight.', color: 'indigo' },
-              { num: '03', name: 'Distribution', title: 'We publish and manage', desc: 'We run your pages on Facebook, TikTok, and Snapchat. Consistent publishing, scheduling, and community management — fully handled.', color: 'teal' },
-              { num: '04', name: 'Monetization', title: 'Revenue starts flowing', desc: 'We activate every available monetization layer: ad revenue, content licensing, platform partner programs, and more.', color: 'violet' },
+              { num:'01', name:'Analysis',     title:'We audit your content',    desc:'We analyze your existing videos to identify top-performing moments and the highest monetization opportunities across platforms.' },
+              { num:'02', name:'Repurposing',  title:'Content gets reshaped',    desc:"We adapt your videos into platform-native formats — optimized for Facebook's algorithm, TikTok's feed, and Snapchat's Spotlight." },
+              { num:'03', name:'Distribution', title:'We publish and manage',    desc:'We run your pages on Facebook, TikTok, and Snapchat. Consistent publishing, scheduling, and community management — fully handled.' },
+              { num:'04', name:'Monetization', title:'Revenue starts flowing',   desc:'We activate every available monetization layer: ad revenue, content licensing, platform partner programs, and more.' },
             ].map((step) => (
-              <motion.div 
+              <motion.div
                 key={step.num}
                 whileHover={{ y: -6 }}
-                className="bg-white border border-black/5 rounded-[20px] p-9 relative overflow-hidden shadow-lg shadow-black/5 group"
+                style={{ ...styles.card, padding:36, position:'relative', overflow:'hidden', background:B.surface }}
               >
-                <div className="absolute bottom-[-10px] right-4 font-syne font-extrabold text-[5rem] text-black/5 leading-none pointer-events-none select-none">
+                {/* CHANGE: Ghost large step number — white/5 opacity vs black/5 */}
+                <div style={{ ...zenDots, position:'absolute', bottom:-8, right:12, fontSize:'5rem', color:'rgba(255,255,255,0.04)', lineHeight:1, pointerEvents:'none', userSelect:'none' }}>
                   {step.num}
                 </div>
-                <div className={`w-11 h-11 rounded-[12px] flex items-center justify-center font-syne font-extrabold text-base text-white mb-6 bg-gradient-${step.color}`}>
+                {/* CHANGE: Step badge — solid orange square, angular */}
+                <div style={{ ...zenDots, ...styles.stepBadge, width:44, height:44, display:'flex', alignItems:'center', justifyContent:'center', fontSize:'0.95rem', marginBottom:24 }}>
                   {step.num}
                 </div>
-                <div className={`text-[0.7rem] font-semibold tracking-[0.1em] uppercase mb-4 text-${step.color}`}>
+                <div style={{ ...zenDots, fontSize:'0.68rem', fontWeight:600, letterSpacing:'0.1em', textTransform:'uppercase', color:B.orange, marginBottom:14 }}>
                   {step.name}
                 </div>
-                <h3 className="text-base font-bold text-charcoal mb-1.5 tracking-tight">{step.title}</h3>
-                <p className="text-[0.88rem] text-muted leading-[1.75]">{step.desc}</p>
+                <h3 style={{ fontSize:'1rem', fontWeight:700, color:B.white, marginBottom:6, letterSpacing:'-0.01em' }}>{step.title}</h3>
+                <p style={{ fontSize:'0.86rem', color:B.muted, lineHeight:1.75 }}>{step.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-12 p-9 bg-linear-to-r from-indigo/10 to-teal/5 border border-indigo/15 rounded-[16px] flex items-center gap-4">
-            <div className="w-10 h-10 rounded-[10px] flex-shrink-0 bg-linear-to-br from-indigo to-teal flex items-center justify-center">
-              <Zap className="text-white" size={18} />
-            </div>
-            <p className="text-[0.9rem] text-ink font-normal leading-[1.6]">
-              {/* CHANGE: bottom banner text */}
-              <strong>You stay focused on creating.</strong> We handle distribution, page management, and scaling across every platform.
+          {/* CHANGE: Info banner — orange-tinted dark, not indigo-teal */}
+          <div className="mt-10 p-9 flex items-center gap-4" style={styles.infoBanner}>
+            <div style={styles.zapIcon}><Zap color={B.white} size={18} /></div>
+            <p style={{ fontSize:'0.9rem', color:B.mutedLight, lineHeight:1.6 }}>
+              <strong style={{ color:B.white }}>You stay focused on creating.</strong> We handle distribution, page management, and scaling across every platform.
             </p>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="bg-white py-28 px-[6%]">
+      {/* ── SERVICES ─────────────────────────────────────────── */}
+      <section id="services" className="py-28 px-[6%]" style={styles.sectionDark}>
         <div className="max-w-7xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-[0.74rem] font-bold tracking-[0.12em] uppercase text-orange mb-5">
-            <span className="w-5 h-[2px] bg-orange rounded-full" />
+          <div className="inline-flex items-center gap-2 mb-5" style={{ ...zenDots, color:B.orange, fontSize:'0.72rem', letterSpacing:'0.12em', textTransform:'uppercase' }}>
+            <span style={{ width:20, height:2, background:B.orange }} />
             Services
           </div>
-          <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold tracking-[-0.03em] text-charcoal mb-14 max-w-[600px]">
-            {/* CHANGE: services headline */}
-            Everything needed to <em className="not-italic text-orange">scale your revenue</em> across platforms
+          <h2 style={{ ...zenDots, fontSize:'clamp(1.8rem,3.5vw,3rem)', fontWeight:400, lineHeight:1.12, color:B.white, marginBottom:56, maxWidth:600 }}>
+            Everything needed to{' '}
+            <em className="not-italic" style={{ color:B.orange }}>scale your revenue</em>{' '}
+            across platforms
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {/* CHANGE: service cards — update title and desc for each */}
             {[
-              { title: 'Content Repurposing', desc: 'Your YouTube videos transformed into platform-native formats for Facebook, TikTok, and Snapchat.', color: 'coral' },
-              { title: 'Multi-Platform Publishing', desc: 'Consistent, strategic content deployment across all three platforms on an optimized schedule.', color: 'indigo' },
-              { title: 'Page Management', desc: 'Full management of your Facebook pages, TikTok accounts, and Snapchat profiles — top to bottom.', color: 'teal' },
-              { title: 'Monetization Strategy', desc: 'We activate every revenue stream available — ad breaks, creator funds, and partner programs.', color: 'amber' },
-              { title: 'Content Licensing', desc: 'Especially powerful on Facebook — we handle licensing deals that generate passive recurring revenue.', color: 'violet' },
-              { title: 'Performance Reporting', desc: 'Clear revenue and growth reports so you always know exactly what your content is earning.', color: 'orange' },
+              { title:'Content Repurposing',      desc:'Your YouTube videos transformed into platform-native formats for Facebook, TikTok, and Snapchat.' },
+              { title:'Multi-Platform Publishing', desc:'Consistent, strategic content deployment across all three platforms on an optimized schedule.' },
+              { title:'Page Management',           desc:'Full management of your Facebook pages, TikTok accounts, and Snapchat profiles — top to bottom.' },
+              { title:'Monetization Strategy',     desc:'We activate every revenue stream available — ad breaks, creator funds, and partner programs.' },
+              { title:'Content Licensing',         desc:'Especially powerful on Facebook — we handle licensing deals that generate passive recurring revenue.' },
+              { title:'Performance Reporting',     desc:'Clear revenue and growth reports so you always know exactly what your content is earning.' },
             ].map((service) => (
-              <motion.div 
+              <motion.div
                 key={service.title}
-                whileHover={{ y: -5 }}
-                className="p-8 rounded-[20px] border border-black/5 shadow-sm hover:shadow-2xl hover:shadow-black/10 transition-all bg-linear-to-br from-offwhite to-white"
+                whileHover={{ y:-5, borderColor:B.orangeBorder }}
+                style={{ ...styles.card, padding:32, background:B.surface, transition:'all 0.25s ease' }}
               >
-                <div className={`w-3 h-3 rounded-full mb-5 bg-${service.color}`} />
-                <h3 className="text-[1.05rem] font-bold text-charcoal mb-2.5">{service.title}</h3>
-                <p className="text-[0.87rem] text-muted leading-[1.7]">{service.desc}</p>
+                {/* CHANGE: Accent dot — orange square (angular brand shape) vs circle */}
+                <div style={styles.dot} />
+                <h3 style={{ fontSize:'1.03rem', fontWeight:700, color:B.white, marginBottom:10, letterSpacing:'-0.01em' }}>{service.title}</h3>
+                <p style={{ fontSize:'0.86rem', color:B.muted, lineHeight:1.7 }}>{service.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section id="cta" className="bg-charcoal text-center relative overflow-hidden py-36 px-[6%]">
-        <div className="absolute inset-0 bg-radial-to-t from-coral/20 via-transparent to-transparent pointer-events-none" />
-        <div className="relative z-1 max-w-[700px] mx-auto">
-          <div className="inline-flex items-center gap-2 text-[0.74rem] font-bold tracking-[0.12em] uppercase text-amber mb-6 justify-center">
-            <span className="w-5 h-[2px] bg-amber rounded-full" />
+      {/* ── FINAL CTA ────────────────────────────────────────── */}
+      {/* CHANGE: CTA bg — dark with centered orange radial glow */}
+      <section
+        id="cta"
+        className="text-center relative overflow-hidden py-36 px-[6%]"
+        style={{
+          background: `radial-gradient(ellipse 70% 60% at 50% 100%, rgba(232,80,10,0.22) 0%, transparent 65%), ${B.surface2}`,
+        }}
+      >
+        <div className="relative z-10 max-w-[680px] mx-auto">
+          {/* CHANGE: Label — orange, Zen Dots */}
+          <div className="inline-flex items-center gap-2 mb-6 justify-center" style={{ ...zenDots, color:B.orange, fontSize:'0.72rem', letterSpacing:'0.12em', textTransform:'uppercase' }}>
+            <span style={{ width:20, height:2, background:B.orange }} />
             Ready to Scale
           </div>
-          <h2 className="text-[clamp(2.4rem,5vw,4.2rem)] font-extrabold tracking-[-0.04em] text-white leading-[1.06] mb-5">
-            {/* CHANGE: final CTA headline */}
-            Stop leaving <em className="not-italic text-amber">revenue</em> on the table
+          <h2 style={{ ...zenDots, fontSize:'clamp(2.2rem,4.5vw,4rem)', fontWeight:400, lineHeight:1.07, color:B.white, marginBottom:20, letterSpacing:'-0.03em' }}>
+            Stop leaving{' '}
+            {/* CHANGE: orange accent consistent with rest of page */}
+            <em className="not-italic" style={{ color:B.orange }}>revenue</em>{' '}
+            on the table
           </h2>
-          <p className="text-[1.05rem] text-white/60 mb-12 leading-[1.7]">
-            {/* CHANGE: final CTA subtext */}
+          <p style={{ fontSize:'1.05rem', color:B.muted, marginBottom:48, lineHeight:1.7 }}>
             Your content is already done. Let's make it earn across every platform it should be on.
           </p>
-          <button className="bg-gradient-coral text-white text-lg px-12 py-5 rounded-full font-syne font-extrabold shadow-2xl shadow-coral/40 hover:translate-y-[-4px] transition-all">
-            {/* CHANGE: final CTA button text */}
+          {/* CHANGE: Big orange CTA button — solid, high contrast, on-brand */}
+          <button
+            className="text-white text-lg px-12 py-5 font-bold transition-all hover:-translate-y-1 hover:opacity-90"
+            style={{ ...zenDots, background:B.orange, borderRadius:8, border:'none', cursor:'pointer', letterSpacing:'0.02em' }}
+          >
             Let's Scale Your Content
           </button>
         </div>
       </section>
+
     </div>
   );
 }
+
+// ============================================================
+//  CHANGE SUMMARY — WHY EACH CHANGE IMPROVES BRAND CONSISTENCY
+// ============================================================
+//
+//  1. COLOR PALETTE
+//     Before: Pastel rainbow (coral + indigo + teal + amber + violet)
+//     After:  Black + orange-only
+//     Why:    The logo uses EXACTLY two colors — black and orange.
+//             A consistent two-color palette across the UI makes every
+//             screen feel like it belongs to the same identity system.
+//
+//  2. TYPOGRAPHY — Zen Dots
+//     Before: Font Syne (rounded, modern)
+//     After:  Zen Dots (geometric, angular)
+//     Why:    The CSS "S" logomark is made of sharp diagonal cuts and
+//             angular geometry. Zen Dots mirrors this with its geometric
+//             letterforms. Every heading reinforces the logo's visual DNA.
+//
+//  3. SECTION BACKGROUNDS
+//     Before: Warm pastel gradients (cream, lavender, soft pink)
+//     After:  Pure black / very dark grey
+//     Why:    The logo lives on a black field. Dark backgrounds create
+//             the same dramatic, high-contrast environment. Orange pops
+//             far more against black than against pastels.
+//
+//  4. CARD BACKGROUNDS
+//     Before: White cards with light shadows
+//     After:  #141414 / #1C1C1C surface cards
+//     Why:    Keeps the dark-first brand. White cards would break the
+//             visual continuity and feel out of place against the logo.
+//
+//  5. BUTTONS
+//     Before: Coral gradient → round pill
+//     After:  Solid orange (#E8500A) → slightly angular (borderRadius 8)
+//     Why:    Matches the logo color exactly. The slight squareness echoes
+//             the angular geometry of the logomark vs overly soft pills.
+//
+//  6. ACCENT COLOR DOTS (Service cards)
+//     Before: Circular colored dots in 6 different colors
+//     After:  Small square orange marks
+//     Why:    Squares/rectangles mirror the rectangular cuts of the logo.
+//             Single orange = brand discipline.
+//
+//  7. PLATFORM ICON BADGES (Solution section)
+//     Before: Facebook blue, TikTok black+violet, Snapchat yellow
+//     After:  All orange
+//     Why:    We're presenting ClipScale's service, not the platforms'.
+//             Using brand-owned orange keeps focus on ClipScale's identity.
+//
+//  8. MARQUEE ITEMS
+//     Before: 5 different platform colors
+//     After:  All orange
+//     Why:    A banner of 5 different colors looks chaotic. All-orange
+//             is bold, recognizable, intentionally branded.
+//
+//  9. GLOW BLOBS / AMBIENT LIGHT
+//     Before: Orange + blue-indigo dual glows on light bg
+//     After:  Single orange glow on dark bg
+//     Why:    One light source, one color = clarity and focus.
+//             Consistent with how the logo photograph is lit.
+// ============================================================

@@ -40,7 +40,7 @@ const projects = [
     thumbnail: "/image2.png",            // CHANGE: thumbnail URL or local path
     videoUrl: "https://www.facebook.com/share/r/1V5eD7axet/", // CHANGE: video link
     stats: "9M+ Views",                        // CHANGE: headline stat
-    platforms: ["Snapchat", "Facebook"]         // CHANGE: platforms used
+    platforms: ["Facebook"]         // CHANGE: platforms used
   },
   {
     id: 3,

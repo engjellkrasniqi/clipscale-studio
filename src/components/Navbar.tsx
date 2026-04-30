@@ -13,22 +13,55 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-100 flex items-center justify-between px-[6%] py-5 transition-all duration-300 ${isScrolled ? 'bg-cream/85 backdrop-blur-lg border-b border-black/10 shadow-lg shadow-black/5' : 'bg-transparent'}`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-100 flex items-center justify-between px-[6%] py-5 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-charcoal/85 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-black/20'
+          : 'bg-transparent'
+      }`}
+    >
+      {/* Logo */}
       <Link to="/" className="flex items-center">
-  <img 
-    src="/logo.png"   // put your logo in public/logo.png
-    alt="ClipScale Studio logo"
-    className="h-8 md:h-10 w-auto object-contain"
-  />
-</Link>
-      
+        <img
+          src="/logo.png" // make sure this exists in your /public folder
+          alt="ClipScale Studio logo"
+          className="h-8 md:h-10 w-auto object-contain"
+        />
+      </Link>
+
+      {/* Nav Links */}
       <ul className="hidden md:flex gap-9 list-none">
-        <li><Link to="/#how" className="text-sm font-medium text-muted hover:text-charcoal transition-colors">How It Works</Link></li>
-        <li><Link to="/#services" className="text-sm font-medium text-muted hover:text-charcoal transition-colors">Services</Link></li>
-        <li><Link to="/results" className="text-sm font-medium text-muted hover:text-charcoal transition-colors">Results</Link></li>
+        <li>
+          <Link
+            to="/#how"
+            className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+          >
+            How It Works
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/#services"
+            className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+          >
+            Services
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/results"
+            className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+          >
+            Results
+          </Link>
+        </li>
       </ul>
 
-      <Link to="/#cta" className="bg-charcoal text-white px-6 py-2.5 rounded-full font-syne font-bold text-[0.88rem] tracking-wide hover:translate-y-[-2px] hover:shadow-xl hover:shadow-charcoal/25 transition-all">
+      {/* CTA Button */}
+      <Link
+        to="/#cta"
+        className="bg-white text-charcoal px-6 py-2.5 rounded-full font-syne font-bold text-[0.88rem] tracking-wide hover:translate-y-[-2px] hover:shadow-xl hover:shadow-black/30 transition-all"
+      >
         Let's Scale Your Content
       </Link>
     </nav>

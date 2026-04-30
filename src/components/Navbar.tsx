@@ -14,9 +14,13 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-100 flex items-center justify-between px-[6%] py-5 transition-all duration-300 ${isScrolled ? 'bg-cream/85 backdrop-blur-lg border-b border-black/10 shadow-lg shadow-black/5' : 'bg-transparent'}`}>
-      <Link to="/" className="font-montserrat font-extrabold text-[1.4rem] text-charcoal tracking-tighter">
-        Clip<span className="text-gradient-coral">Scale Studio</span>
-      </Link>
+      <Link to="/" className="flex items-center">
+  <img 
+    src="/logo.png"   // put your logo in public/logo.png
+    alt="ClipScale Studio logo"
+    className="h-8 md:h-10 w-auto object-contain"
+  />
+</Link>
       
       <ul className="hidden md:flex gap-9 list-none">
         <li><Link to="/#how" className="text-sm font-medium text-muted hover:text-charcoal transition-colors">How It Works</Link></li>

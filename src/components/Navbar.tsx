@@ -21,11 +21,11 @@ export default function Navbar() {
       }`}
     >
       {/* Logo */}
-      <Link to="/" className="flex items-center">
+     <Link to="/" className="flex items-center">
   <img
     src="/logo.png"
     alt="ClipScale Studio logo"
-    className="h-20 md:h-24 w-auto object-contain -my-5"
+    className="h-28 md:h-32 w-auto object-contain -my-8"
   />
 </Link>
 

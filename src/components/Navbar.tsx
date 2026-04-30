@@ -23,9 +23,9 @@ export default function Navbar() {
       {/* Logo */}
       <Link to="/" className="flex items-center">
         <img
-          src="/logo.png" // make sure this exists in your /public folder
+          src="/logo.png"
           alt="ClipScale Studio logo"
-          className="h-12 md:h-14 w-auto object-contain"
+          className="h-16 md:h-20 w-auto object-contain -my-3"
         />
       </Link>
 

@@ -10,7 +10,7 @@ export default function Footer() {
         <img
           src="/CSS.png"
           alt="Clip Scale Studio logo"
-          className="h-8 w-auto object-contain"
+          className="h-24 w-auto object-contain"
         />
       </Link>
 

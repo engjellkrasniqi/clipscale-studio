@@ -350,7 +350,8 @@ export default function Home() {
           </h2>
           <p className="text-[1.05rem] text-white/40 mb-12 leading-[1.7]">
             {/* CHANGE: final CTA subtext */}
-            Your content is already done. Let's make it earn across every platform it should be on.
+            Your content is already done.<br />
+            Let's make it earn across every platform it should be on.
           </p>
           <button className="text-white text-lg px-12 py-5 rounded-full font-syne font-extrabold shadow-2xl hover:translate-y-[-4px] transition-all" style={{background: 'linear-gradient(135deg, #FF5A1F, #c43a00)', boxShadow: '0 20px 60px rgba(255,90,31,0.35)'}}>
             {/* CHANGE: final CTA button text */}

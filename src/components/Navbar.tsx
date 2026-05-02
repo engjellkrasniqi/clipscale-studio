@@ -16,25 +16,26 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-100 flex items-center justify-between px-[6%] py-5 transition-all duration-300 ${
         isScrolled
-          ? 'bg-charcoal/85 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-black/20'
+          ? 'backdrop-blur-lg border-b shadow-lg shadow-black/40'
           : 'bg-transparent'
       }`}
+      style={isScrolled ? { background: 'rgba(10,10,10,0.85)', borderColor: 'rgba(255,90,31,0.12)' } : {}}
     >
       {/* Logo */}
-     <Link to="/" className="flex items-center relative">
-  <img
-    src="/logo.png"
-    alt="ClipScale Studio logo"
-    className="h-36 md:h-44 w-auto object-contain -my-12"
-  />
-</Link>
+      <Link to="/" className="flex items-center relative">
+        <img
+          src="/logo.png"
+          alt="ClipScale Studio logo"
+          className="h-36 md:h-44 w-auto object-contain -my-12"
+        />
+      </Link>
 
       {/* Nav Links */}
       <ul className="hidden md:flex gap-9 list-none">
         <li>
           <Link
             to="/#how"
-            className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+            className="text-sm font-medium text-white/50 hover:text-white transition-colors"
           >
             How It Works
           </Link>
@@ -42,7 +43,7 @@ export default function Navbar() {
         <li>
           <Link
             to="/#services"
-            className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+            className="text-sm font-medium text-white/50 hover:text-white transition-colors"
           >
             Services
           </Link>
@@ -50,7 +51,7 @@ export default function Navbar() {
         <li>
           <Link
             to="/results"
-            className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+            className="text-sm font-medium text-white/50 hover:text-white transition-colors"
           >
             Results
           </Link>
@@ -60,7 +61,13 @@ export default function Navbar() {
       {/* CTA Button */}
       <Link
         to="/#cta"
-        className="bg-white text-charcoal px-6 py-2.5 rounded-full font-syne font-bold text-[0.88rem] tracking-wide hover:translate-y-[-2px] hover:shadow-xl hover:shadow-black/30 transition-all"
+        className="text-white px-6 py-2.5 rounded-full font-syne font-bold text-[0.88rem] tracking-wide hover:translate-y-[-2px] transition-all"
+        style={{
+          background: 'linear-gradient(135deg, #FF5A1F, #c43a00)',
+          boxShadow: '0 4px 20px rgba(255,90,31,0.25)',
+        }}
+        onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 8px 30px rgba(255,90,31,0.45)')}
+        onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(255,90,31,0.25)')}
       >
         Let's Scale Your Content
       </Link>

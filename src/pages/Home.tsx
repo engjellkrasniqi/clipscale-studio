@@ -58,7 +58,7 @@ export default function Home() {
           transition={{ delay: 0.3 }}
           className="relative z-1 flex flex-wrap justify-center gap-3.5 mt-11"
         >
-          <Link to="/#cta" className="text-white px-9 py-4 rounded-full font-syne font-bold text-base tracking-tight shadow-2xl shadow-[#FF5A1F]/30 hover:translate-y-[-3px] hover:shadow-[#FF5A1F]/50 transition-all" style={{background: 'linear-gradient(135deg, #FF5A1F, #c43a00)'}}>
+          <Link to="/contact" className="text-white px-9 py-4 rounded-full font-syne font-bold text-base tracking-tight shadow-2xl shadow-[#FF5A1F]/30 hover:translate-y-[-3px] hover:shadow-[#FF5A1F]/50 transition-all" style={{background: 'linear-gradient(135deg, #FF5A1F, #c43a00)'}}>
             {/* CHANGE: primary CTA button text */}
             Let's Scale Your Content
           </Link>
@@ -353,10 +353,9 @@ export default function Home() {
             Your content is already done.<br />
             Let's make it earn across every platform it should be on.
           </p>
-          <button className="text-white text-lg px-12 py-5 rounded-full font-syne font-extrabold shadow-2xl hover:translate-y-[-4px] transition-all" style={{background: 'linear-gradient(135deg, #FF5A1F, #c43a00)', boxShadow: '0 20px 60px rgba(255,90,31,0.35)'}}>
-            {/* CHANGE: final CTA button text */}
-            Let's Scale Your Content
-          </button>
+          <Link to="/contact" className="text-white text-lg px-12 py-5 rounded-full font-syne font-extrabold shadow-2xl hover:translate-y-[-4px] transition-all" style={{background: 'linear-gradient(135deg, #FF5A1F, #c43a00)', boxShadow: '0 20px 60px rgba(255,90,31,0.35)'}}>
+  Let's Scale Your Content
+</Link>
         </div>
       </section>
     </div>

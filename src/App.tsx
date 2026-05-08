@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Results from './pages/Results';
+import Contact from './pages/Contact'; // ADD THIS
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -32,6 +33,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/contact" element={<Contact />} /> {/* ADD THIS */}
           </Routes>
         </main>
         <Footer />

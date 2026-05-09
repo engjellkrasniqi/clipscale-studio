@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Results from './pages/Results';
-import Contact from './pages/Contact'; // ADD THIS
+import Contact from './pages/Contact';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();

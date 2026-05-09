@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Play, ExternalLink, Users, Video, BarChart3, ArrowRight } from 'lucide-react';
 
 // ============================================================
@@ -30,7 +31,7 @@ const projects = [
     creator: "True 911 Calls",           // CHANGE: creator name
     thumbnail: "/image1.png",                   // CHANGE: thumbnail URL or local path
     videoUrl: "https://www.facebook.com/watch/?v=792110205219679", // CHANGE: video link
-    stats: "2.7+ Views",                        // CHANGE: headline stat
+    stats: "2.7M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook"]           // CHANGE: platforms used
   },
   {
@@ -172,9 +173,9 @@ export default function Results() {
         className="mt-32 max-w-4xl mx-auto bg-linear-to-r from-coral/10 to-orange/10 border border-coral/20 rounded-[2rem] p-12 text-center"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to see these numbers on your dashboard?</h2>
-        <button className="bg-gradient-coral px-10 py-4 rounded-full font-syne font-extrabold text-lg hover:translate-y-[-4px] hover:shadow-2xl hover:shadow-coral/40 transition-all">
-          Apply to Scale Now
-        </button>
+        <Link to="/contact" className="bg-gradient-coral px-10 py-4 rounded-full font-syne font-extrabold text-lg hover:translate-y-[-4px] hover:shadow-2xl hover:shadow-coral/40 transition-all inline-block">
+  Apply to Scale Now
+</Link>
       </motion.div>
     </div>
   );

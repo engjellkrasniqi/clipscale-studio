@@ -60,17 +60,17 @@ export default function Navbar() {
 
       {/* CTA Button */}
       <Link
-        to="/#cta"
-        className="text-white px-6 py-2.5 rounded-full font-syne font-bold text-[0.88rem] tracking-wide hover:translate-y-[-2px] transition-all"
-        style={{
-          background: 'linear-gradient(135deg, #FF5A1F, #c43a00)',
-          boxShadow: '0 4px 20px rgba(255,90,31,0.25)',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 8px 30px rgba(255,90,31,0.45)')}
-        onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(255,90,31,0.25)')}
-      >
-        Let's Scale Your Content
-      </Link>
+  to="/contact"
+  className="text-white px-6 py-2.5 rounded-full font-syne font-bold text-[0.88rem] tracking-wide hover:translate-y-[-2px] transition-all"
+  style={{
+    background: 'linear-gradient(135deg, #FF5A1F, #c43a00)',
+    boxShadow: '0 4px 20px rgba(255,90,31,0.25)',
+  }}
+  onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 8px 30px rgba(255,90,31,0.45)')}
+  onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(255,90,31,0.25)')}
+>
+  Let's Scale Your Content
+</Link>
     </nav>
   );
 }

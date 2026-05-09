@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Mail, Calendar, ArrowRight, CheckCircle2, Clock, Video, Zap } from 'lucide-react';
 
-const CONTACT_EMAIL = 'hello@clipscale.com';
+const CONTACT_EMAIL = 'contact@clipscale.com';
 
 export default function Contact() {
   const [activeTab, setActiveTab] = useState('schedule');

@@ -103,8 +103,7 @@ export default function Contact() {
   width="100%"
   height="700px"
   frameBorder="0"
-  scrolling="no"
-  style={{ borderRadius: '16px', minWidth: '320px', overflow: 'hidden' }}
+  style={{ borderRadius: '16px', minWidth: '320px' }}
 />
   </div>
 )}

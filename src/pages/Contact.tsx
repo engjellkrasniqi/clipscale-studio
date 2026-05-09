@@ -99,7 +99,7 @@ export default function Contact() {
     </div>
 
     <iframe
-  src="https://calendly.com/contact-clipscale?embed_domain=localhost&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&background_color=111111&text_color=ffffff&primary_color=FF5A1F"
+  src="https://calendly.com/contact-clipscale/30min?embed_domain=localhost&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&background_color=111111&text_color=ffffff&primary_color=FF5A1F"
   width="100%"
   height="700px"
   frameBorder="0"

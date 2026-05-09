@@ -1,23 +1,14 @@
 // @ts-nocheck
 import { motion } from 'motion/react';
 import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { Mail, Calendar, ArrowRight, CheckCircle2, Clock, Video, Zap } from 'lucide-react';
 
-const CONTACT_EMAIL = 'contact@clipscale.com';
+const CONTACT_EMAIL = 'contact@clipscale.studio';
 
 export default function Contact() {
   const [activeTab, setActiveTab] = useState('schedule');
-  const [formState, setFormState] = useState({ name: '', email: '', channel: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
-  };
+  const [state, handleFormspreeSubmit] = useForm('meenrllr');
 
   return (
     <div className="overflow-x-hidden bg-black min-h-screen">
@@ -87,31 +78,47 @@ export default function Contact() {
             >
               {/* ────── SCHEDULE TAB ────── */}
               {activeTab === 'schedule' && (
-  <div className="rounded-[24px] p-10 border border-white/6" style={{ background: 'linear-gradient(135deg, #161616, #111)' }}>
-    <div className="flex items-center gap-3 mb-8">
-      <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FF5A1F, #c43a00)' }}>
-        <Calendar className="text-white" size={18} />
-      </div>
-      <div>
-        <h2 className="text-[1.15rem] font-bold text-white">Book a Free Strategy Call</h2>
-        <p className="text-[0.8rem] text-white/35 mt-0.5">30 minutes · No pressure · 100% free</p>
-      </div>
-    </div>
+                <div className="rounded-[24px] p-10 border border-white/6" style={{ background: 'linear-gradient(135deg, #161616, #111)' }}>
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FF5A1F, #c43a00)' }}>
+                      <Calendar className="text-white" size={18} />
+                    </div>
+                    <div>
+                      <h2 className="text-[1.15rem] font-bold text-white">Book a Free Strategy Call</h2>
+                      <p className="text-[0.8rem] text-white/35 mt-0.5">30 minutes · No pressure · 100% free</p>
+                    </div>
+                  </div>
 
-    <iframe
-  src="https://calendly.com/contact-clipscale/30min?embed_domain=localhost&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&background_color=111111&text_color=ffffff&primary_color=FF5A1F"
-  width="100%"
-  height="700px"
-  frameBorder="0"
-  style={{ borderRadius: '16px', minWidth: '320px' }}
-/>
-  </div>
-)}
+                  <iframe
+                    src="https://calendly.com/contact-clipscale/30min?embed_domain=localhost&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&background_color=111111&text_color=ffffff&primary_color=FF5A1F"
+                    width="100%"
+                    height="700px"
+                    frameBorder="0"
+                    style={{ borderRadius: '16px', minWidth: '320px' }}
+                  />
+                </div>
+              )}
 
               {/* ────── EMAIL TAB ────── */}
               {activeTab === 'email' && (
                 <div className="rounded-[24px] p-10 border border-white/6" style={{ background: 'linear-gradient(135deg, #161616, #111)' }}>
-                  {!submitted ? (
+                  {state.succeeded ? (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="text-center py-12"
+                    >
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(255,90,31,0.12)', border: '1px solid rgba(255,90,31,0.3)' }}>
+                        <CheckCircle2 className="text-[#FF5A1F]" size={30} />
+                      </div>
+                      <h3 className="text-[1.4rem] font-extrabold text-white mb-3">
+                        Message received!
+                      </h3>
+                      <p className="text-white/45 leading-[1.7] max-w-[340px] mx-auto text-[0.93rem]">
+                        We'll review your channel and be in touch within 24 hours with next steps.
+                      </p>
+                    </motion.div>
+                  ) : (
                     <>
                       <div className="flex items-center gap-3 mb-8">
                         <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FF5A1F, #c43a00)' }}>
@@ -123,7 +130,7 @@ export default function Contact() {
                         </div>
                       </div>
 
-                      <form onSubmit={handleSubmit} className="space-y-5">
+                      <form onSubmit={handleFormspreeSubmit} className="space-y-5">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
                             <label className="block text-[0.75rem] font-semibold tracking-[0.07em] uppercase text-white/30 mb-2">
@@ -131,10 +138,9 @@ export default function Contact() {
                             </label>
                             <input
                               type="text"
+                              name="name"
                               required
                               placeholder="Alex Johnson"
-                              value={formState.name}
-                              onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                               className="w-full px-5 py-3.5 rounded-[12px] text-[0.92rem] text-white placeholder-white/20 outline-none transition-all"
                               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
                               onFocus={(e) => e.target.style.borderColor = 'rgba(255,90,31,0.5)'}
@@ -147,15 +153,15 @@ export default function Contact() {
                             </label>
                             <input
                               type="email"
+                              name="email"
                               required
                               placeholder="you@example.com"
-                              value={formState.email}
-                              onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                               className="w-full px-5 py-3.5 rounded-[12px] text-[0.92rem] text-white placeholder-white/20 outline-none transition-all"
                               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
                               onFocus={(e) => e.target.style.borderColor = 'rgba(255,90,31,0.5)'}
                               onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
                             />
+                            <ValidationError field="email" prefix="Email" errors={state.errors} className="text-red-400 text-xs mt-1" />
                           </div>
                         </div>
 
@@ -165,9 +171,8 @@ export default function Contact() {
                           </label>
                           <input
                             type="url"
+                            name="channel"
                             placeholder="https://youtube.com/@yourchannel"
-                            value={formState.channel}
-                            onChange={(e) => setFormState({ ...formState, channel: e.target.value })}
                             className="w-full px-5 py-3.5 rounded-[12px] text-[0.92rem] text-white placeholder-white/20 outline-none transition-all"
                             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
                             onFocus={(e) => e.target.style.borderColor = 'rgba(255,90,31,0.5)'}
@@ -181,23 +186,23 @@ export default function Contact() {
                           </label>
                           <textarea
                             rows={4}
+                            name="message"
                             placeholder="Monthly views, current monetization setup, goals..."
-                            value={formState.message}
-                            onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                             className="w-full px-5 py-3.5 rounded-[12px] text-[0.92rem] text-white placeholder-white/20 outline-none resize-none transition-all"
                             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
                             onFocus={(e) => e.target.style.borderColor = 'rgba(255,90,31,0.5)'}
                             onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
                           />
+                          <ValidationError field="message" prefix="Message" errors={state.errors} className="text-red-400 text-xs mt-1" />
                         </div>
 
                         <button
                           type="submit"
-                          disabled={loading}
+                          disabled={state.submitting}
                           className="flex items-center justify-center gap-2.5 w-full py-4.5 rounded-full font-syne font-extrabold text-[1rem] text-white transition-all hover:translate-y-[-3px] disabled:opacity-60 disabled:translate-y-0"
                           style={{ background: 'linear-gradient(135deg, #FF5A1F, #c43a00)', boxShadow: '0 16px 50px rgba(255,90,31,0.3)' }}
                         >
-                          {loading ? (
+                          {state.submitting ? (
                             <>
                               <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                               Sending...
@@ -219,28 +224,6 @@ export default function Contact() {
                         </p>
                       </form>
                     </>
-                  ) : (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="text-center py-12"
-                    >
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(255,90,31,0.12)', border: '1px solid rgba(255,90,31,0.3)' }}>
-                        <CheckCircle2 className="text-[#FF5A1F]" size={30} />
-                      </div>
-                      <h3 className="text-[1.4rem] font-extrabold text-white mb-3">
-                        Message received!
-                      </h3>
-                      <p className="text-white/45 leading-[1.7] max-w-[340px] mx-auto text-[0.93rem]">
-                        We'll review your channel and be in touch within 24 hours with next steps.
-                      </p>
-                      <button
-                        onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', channel: '', message: '' }); }}
-                        className="mt-8 text-[0.82rem] font-semibold text-[#FF5A1F] hover:underline"
-                      >
-                        Send another message
-                      </button>
-                    </motion.div>
                   )}
                 </div>
               )}

@@ -87,25 +87,26 @@ export default function Contact() {
             >
               {/* ────── SCHEDULE TAB ────── */}
               {activeTab === 'schedule' && (
-                <div className="rounded-[24px] p-10 border border-white/6" style={{ background: 'linear-gradient(135deg, #161616, #111)' }}>
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FF5A1F, #c43a00)' }}>
-                      <Calendar className="text-white" size={18} />
-                    </div>
-                    <div>
-                      <h2 className="text-[1.15rem] font-bold text-white">Book a Free Strategy Call</h2>
-                      <p className="text-[0.8rem] text-white/35 mt-0.5">30 minutes · No pressure · 100% free</p>
-                    </div>
-                  </div>
+  <div className="rounded-[24px] p-10 border border-white/6" style={{ background: 'linear-gradient(135deg, #161616, #111)' }}>
+    <div className="flex items-center gap-3 mb-8">
+      <div className="w-11 h-11 rounded-[12px] flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FF5A1F, #c43a00)' }}>
+        <Calendar className="text-white" size={18} />
+      </div>
+      <div>
+        <h2 className="text-[1.15rem] font-bold text-white">Book a Free Strategy Call</h2>
+        <p className="text-[0.8rem] text-white/35 mt-0.5">30 minutes · No pressure · 100% free</p>
+      </div>
+    </div>
 
-                  {/* Calendly inline widget */}
-                  <div
-                    className="calendly-inline-widget rounded-[16px] overflow-hidden"
-                    data-url="https://calendly.com/contact-clipscale"
-                    style={{ minWidth: '320px', height: '700px' }}
-                  />
-                </div>
-              )}
+    <iframe
+      src="https://calendly.com/contact-clipscale?embed_domain=localhost&embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&background_color=111111&text_color=ffffff&primary_color=FF5A1F"
+      width="100%"
+      height="700px"
+      frameBorder="0"
+      style={{ borderRadius: '16px', minWidth: '320px' }}
+    />
+  </div>
+)}
 
               {/* ────── EMAIL TAB ────── */}
               {activeTab === 'email' && (

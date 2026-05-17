@@ -45,12 +45,12 @@ const projects = [
   },
   {
     id: 3,
-    title: "Educational Content Engine",        // CHANGE: project title
-    creator: "Placeholder Creator 3",           // CHANGE: creator name
+    title: "Automotive",        // CHANGE: project title
+    creator: "VINwiki",           // CHANGE: creator name
     thumbnail: "/image3.png", // CHANGE: thumbnail URL
     videoUrl: "https://www.facebook.com/watch/?v=439730774714109", // CHANGE: video link
-    stats: "8M+ Views",                         // CHANGE: headline stat
-    platforms: ["TikTok", "Snapchat"]           // CHANGE: platforms used
+    stats: "3M+ Views",                         // CHANGE: headline stat
+    platforms: ["Facebook"]           // CHANGE: platforms used
   },
   {
     id: 4,

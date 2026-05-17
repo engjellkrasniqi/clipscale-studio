@@ -47,8 +47,8 @@ const projects = [
     id: 3,
     title: "Educational Content Engine",        // CHANGE: project title
     creator: "Placeholder Creator 3",           // CHANGE: creator name
-    thumbnail: "https://picsum.photos/seed/edu/800/450", // CHANGE: thumbnail URL
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // CHANGE: video link
+    thumbnail: "/image3.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/watch/?v=439730774714109", // CHANGE: video link
     stats: "8M+ Views",                         // CHANGE: headline stat
     platforms: ["TikTok", "Snapchat"]           // CHANGE: platforms used
   },

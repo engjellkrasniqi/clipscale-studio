@@ -64,11 +64,11 @@ const projects = [
   {
     id: 4,
     title: "True Crime ",         // CHANGE: project title
-    creator: "Placeholder Creator 4",           // CHANGE: creator name
+    creator: "Caspersight",           // CHANGE: creator name
     thumbnail: "/image5.png", // CHANGE: thumbnail URL
     videoUrl: "https://www.facebook.com/reel/826913886455400", // CHANGE: video link
     stats: "10M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook", "TikTok", "Snapchat"] // CHANGE: platforms used
+    platforms: ["Facebook"] // CHANGE: platforms used
   }
 ];
 // ============================================================

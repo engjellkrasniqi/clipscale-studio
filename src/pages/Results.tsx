@@ -63,11 +63,11 @@ const projects = [
   },
   {
     id: 4,
-    title: "Tech Reviews Distribution",         // CHANGE: project title
+    title: "True Crime ",         // CHANGE: project title
     creator: "Placeholder Creator 4",           // CHANGE: creator name
-    thumbnail: "https://picsum.photos/seed/tech/800/450", // CHANGE: thumbnail URL
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // CHANGE: video link
-    stats: "20M+ Views",                        // CHANGE: headline stat
+    thumbnail: "/image5.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/reel/826913886455400", // CHANGE: video link
+    stats: "10M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook", "TikTok", "Snapchat"] // CHANGE: platforms used
   }
 ];

@@ -54,6 +54,15 @@ const projects = [
   },
   {
     id: 4,
+    title: "Restoration",         // CHANGE: project title
+    creator: "Cool Again Restoration",           // CHANGE: creator name
+    thumbnail: "/image4", // CHANGE: thumbnail URL
+    videoUrl: "https://www.snapchat.com/p/3a3ba2c4-6988-40bd-b665-376e38566ab8/1146091361204224", // CHANGE: video link
+    stats: "2M+ Views",                        // CHANGE: headline stat
+    platforms: ["Snapchat"] // CHANGE: platforms used
+  },
+  {
+    id: 4,
     title: "Tech Reviews Distribution",         // CHANGE: project title
     creator: "Placeholder Creator 4",           // CHANGE: creator name
     thumbnail: "https://picsum.photos/seed/tech/800/450", // CHANGE: thumbnail URL

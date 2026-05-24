@@ -78,6 +78,15 @@ const projects = [
     videoUrl: "https://www.facebook.com/share/r/1ApRwiXWkp/", // CHANGE: video link
     stats: "6.6M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook"] // CHANGE: platforms used
+  },
+  {
+    id: 4,
+    title: "Home & Living",         // CHANGE: project title
+    creator: "Tiny House Expedition",           // CHANGE: creator name
+    thumbnail: "/image7.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/share/v/1HyFE7ct4S/", // CHANGE: video link
+    stats: "2.4M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook"] // CHANGE: platforms used
   }
 
 ];

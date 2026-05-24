@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Results from './pages/Results';
 import Contact from './pages/Contact';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();

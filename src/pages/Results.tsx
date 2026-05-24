@@ -69,7 +69,17 @@ const projects = [
     videoUrl: "https://www.facebook.com/reel/826913886455400", // CHANGE: video link
     stats: "10M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook"] // CHANGE: platforms used
+  },
+  {
+    id: 4,
+    title: "True Crime ",         // CHANGE: project title
+    creator: "Caspersight",           // CHANGE: creator name
+    thumbnail: "/image5.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/reel/826913886455400", // CHANGE: video link
+    stats: "10M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook"] // CHANGE: platforms used
   }
+
 ];
 // ============================================================
 //  END OF EDITABLE SECTION — don't edit below unless you want

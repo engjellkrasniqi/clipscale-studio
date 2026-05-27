@@ -62,7 +62,7 @@ const projects = [
     platforms: ["Snapchat"] // CHANGE: platforms used
   },
   {
-    id: 4,
+    id: 5,
     title: "True Crime",         // CHANGE: project title
     creator: "Caspersight",           // CHANGE: creator name
     thumbnail: "/image5.png", // CHANGE: thumbnail URL
@@ -71,7 +71,7 @@ const projects = [
     platforms: ["Facebook"] // CHANGE: platforms used
   },
   {
-    id: 4,
+    id: 5,
     title: "Automotive",         // CHANGE: project title
     creator: "C & C Equipment",           // CHANGE: creator name
     thumbnail: "/image6.png", // CHANGE: thumbnail URL
@@ -80,7 +80,7 @@ const projects = [
     platforms: ["Facebook"] // CHANGE: platforms used
   },
   {
-    id: 4,
+    id: 6,
     title: "Home & Living",         // CHANGE: project title
     creator: "Tiny House Expedition",           // CHANGE: creator name
     thumbnail: "/image7.png", // CHANGE: thumbnail URL
@@ -168,26 +168,6 @@ export default function Results() {
                   <div className="text-coral font-syne font-black text-xl">{project.stats}</div>
                   <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Growth</div>
                 </div>
-              </div>
-
-              <p className="text-white/50 text-sm leading-relaxed mb-8">
-                Full distribution across {project.platforms.join(', ')} with optimized native formatting and strategic page management.
-              </p>
-
-              <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                <div className="flex gap-4">
-                  <div className="flex items-center gap-1.5 text-xs text-white/60">
-                    <Video size={14} className="text-sky" />
-                    <span>40+ Clips</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs text-white/60">
-                    <BarChart3 size={14} className="text-teal" />
-                    <span>3.5x ROI</span>
-                  </div>
-                </div>
-                <a href="#" className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/80 hover:text-coral transition-colors">
-                  View Case Study <ArrowRight size={14} />
-                </a>
               </div>
             </div>
           </motion.div>

@@ -61,10 +61,11 @@ export default function Navbar() {
       {/* CTA Button */}
       <Link
   to="/contact"
-  className="text-white px-6 py-2.5 rounded-full font-syne font-bold text-[0.88rem] tracking-wide hover:translate-y-[-2px] transition-all"
+  className="text-white px-9 py-4 font-syne font-bold text-base tracking-tight hover:translate-y-[-3px] transition-all relative inline-block"
   style={{
+    clipPath: 'polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)',
     background: 'linear-gradient(135deg, #FF5A1F, #c43a00)',
-    boxShadow: '0 4px 20px rgba(255,90,31,0.25)',
+    boxShadow: '0 8px 30px rgba(255,90,31,0.35)',
   }}
   onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 8px 30px rgba(255,90,31,0.45)')}
   onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(255,90,31,0.25)')}

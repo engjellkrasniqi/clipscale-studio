@@ -204,7 +204,7 @@ export default function Home() {
           </p>
           <p className="text-[1.05rem] leading-[1.8] text-white/40 max-w-[560px] mb-16 font-light">
             {/* CHANGE: solution paragraph 2 */}
-            <strong className="text-white/70">We don't edit for YouTube.<br> </br> We take what you already have and make it earn more.</strong>
+            <strong className="text-white/70">We don't edit for YouTube.<br /> We take what you already have and make it earn more.</strong>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

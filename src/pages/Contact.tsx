@@ -240,9 +240,9 @@ export default function Contact() {
                 <p className="text-[0.72rem] tracking-[0.08em] uppercase text-white/25 font-semibold mb-5">Why creators work with us</p>
                 <div className="space-y-5">
                   {[
-                    { num: '4,000+', label: 'Videos Deployed' },
-                    { num: '2B+', label: 'Views Generated' },
-                    { num: '150+', label: 'Creators Scaled' },
+                    { num: 'THOUSANDS', label: 'Videos Deployed' },
+                    { num: 'BILLIONS', label: 'Views Generated' },
+                    { num: 'HUNDREDS', label: 'Creators Scaled' },
                   ].map((stat) => (
                     <div key={stat.label} className="flex items-center justify-between py-4 border-b border-white/5 last:border-0">
                       <span className="text-[0.88rem] text-white/40">{stat.label}</span>

@@ -15,7 +15,7 @@ export default function Footer() {
       </Link>
 
       <div className="flex gap-7">
-        <a href="#" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">Contact</a>
+        <Link to="/contact" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">Contact</Link>
         <a href="#" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">Facebook</a>
         <a href="#" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">TikTok</a>
         <a href="#" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">Instagram</a>

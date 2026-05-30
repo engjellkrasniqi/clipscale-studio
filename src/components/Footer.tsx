@@ -16,14 +16,9 @@ export default function Footer() {
 
       <div className="flex gap-7">
         <Link to="/contact" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">Contact</Link>
-        <a href="#" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">Facebook</a>
-        <a href="#" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">TikTok</a>
-        <a href="#" className="text-[0.85rem] text-white/40 hover:text-white transition-colors">Instagram</a>
       </div>
 
-      <span className="text-[0.78rem] text-white/20">
-        © 2026 ClipScale. All rights reserved.
-      </span>
+      
     </footer>
   );
 }

@@ -143,7 +143,7 @@ export default function Home() {
             </h2>
             <p className="text-[1.05rem] leading-[1.8] text-white/50 mb-4 font-light">
               {/* CHANGE: problem paragraph 1 */}
-              Most YouTube creators earn exclusively from their main channel — while the same content could be generating revenue on three other platforms <strong className="text-white/80">right now.</strong>
+              Most YouTube creators earn exclusively from their main channel — while the same content could be generating revenue on other platforms <strong className="text-white/80">right now.</strong>
             </p>
             <p className="text-[1.05rem] leading-[1.8] text-white/50 font-light">
               {/* CHANGE: problem paragraph 2 */}
@@ -204,36 +204,65 @@ export default function Home() {
           </p>
           <p className="text-[1.05rem] leading-[1.8] text-white/40 max-w-[560px] mb-16 font-light">
             {/* CHANGE: solution paragraph 2 */}
-            <strong className="text-white/70">We don't edit for YouTube. We take what you already have and make it earn more.</strong>
+            <strong className="text-white/70">We don't edit for YouTube.<br> </br> We take what you already have and make it earn more.</strong>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* CHANGE: platform cards — update title, desc, tag as needed */}
-            {[
-              { id: 'fb', icon: 'fb', title: 'Facebook', desc: 'The single most powerful platform for video monetization. We manage your page, optimize for Facebook Ad Breaks, and unlock content licensing revenue.', tag: 'Highest Rev Potential' },
-              { id: 'tk', icon: 'TK', title: 'TikTok', desc: 'Massive organic reach with Creator Fund and TikTok Series monetization. We handle repurposing and consistent publishing to grow your presence fast.', tag: 'Organic Reach' },
-              { id: 'sc', icon: 'SC', title: 'Snapchat', desc: 'Snapchat Spotlight and Discover are underutilized revenue channels. We deploy your content there and tap into Snap\'s creator monetization programs.', tag: 'Underutilized Revenue' },
-            ].map((card) => (
-              <motion.div 
-                key={card.id}
-                whileHover={{ y: -6 }}
-                className="border rounded-[20px] p-8 relative overflow-hidden group transition-all duration-300"
-                style={{background: 'linear-gradient(135deg, #161616, #111)', borderColor: 'rgba(255,90,31,0.1)'}}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(255,90,31,0.3)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,90,31,0.1)'}
-              >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-[20px]" style={{background: 'radial-gradient(circle at 30% 30%, rgba(255,90,31,0.06), transparent 70%)'}} />
-                <div className="relative z-1 w-[52px] h-[52px] rounded-[14px] flex items-center justify-center mb-5 font-syne font-extrabold text-[1.1rem] text-white" style={{background: 'linear-gradient(135deg, #FF5A1F, #c43a00)'}}>
-                  {card.icon}
-                </div>
-                <h3 className="relative z-1 text-[1.15rem] font-bold text-white mb-2.5">{card.title}</h3>
-                <p className="relative z-1 text-[0.88rem] text-white/40 leading-[1.7]">{card.desc}</p>
-                <span className="relative z-1 inline-block mt-4 px-3 py-1.5 rounded-full text-[0.72rem] font-bold tracking-[0.06em] uppercase text-[#FF5A1F]" style={{background: 'rgba(255,90,31,0.1)', border: '1px solid rgba(255,90,31,0.2)'}}>
-                  {card.tag}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+  {[
+    {
+      id: 'fb',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      ),
+      title: 'Facebook',
+      desc: 'The single most powerful platform for video monetization. We manage your page, optimize for Facebook Ad Breaks, and unlock content licensing revenue.',
+      tag: 'Highest Rev Potential'
+    },
+    {
+      id: 'tk',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+        </svg>
+      ),
+      title: 'TikTok',
+      desc: 'Massive organic reach with Creator Fund and TikTok Series monetization. We handle repurposing and consistent publishing to grow your presence fast.',
+      tag: 'Organic Reach'
+    },
+    {
+      id: 'sc',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.165-.015h-.104c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.45-.166-.54-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/>
+        </svg>
+      ),
+      title: 'Snapchat',
+      desc: "Snapchat Spotlight and Discover are underutilized revenue channels. We deploy your content there and tap into Snap's creator monetization programs.",
+      tag: 'Underutilized Revenue'
+    },
+  ].map((card) => (
+    <motion.div
+      key={card.id}
+      whileHover={{ y: -6 }}
+      className="border rounded-[20px] p-8 relative overflow-hidden group transition-all duration-300"
+      style={{ background: 'linear-gradient(135deg, #161616, #111)', borderColor: 'rgba(255,90,31,0.1)' }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(255,90,31,0.3)'}
+      onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,90,31,0.1)'}
+    >
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-[20px]" style={{ background: 'radial-gradient(circle at 30% 30%, rgba(255,90,31,0.06), transparent 70%)' }} />
+      <div className="relative z-1 w-[52px] h-[52px] rounded-[14px] flex items-center justify-center mb-5" style={{ background: 'linear-gradient(135deg, #FF5A1F, #c43a00)' }}>
+        {card.icon}
+      </div>
+      <h3 className="relative z-1 text-[1.15rem] font-bold text-white mb-2.5">{card.title}</h3>
+      <p className="relative z-1 text-[0.88rem] text-white/40 leading-[1.7]">{card.desc}</p>
+      <span className="relative z-1 inline-block mt-4 px-3 py-1.5 rounded-full text-[0.72rem] font-bold tracking-[0.06em] uppercase text-[#FF5A1F]" style={{ background: 'rgba(255,90,31,0.1)', border: '1px solid rgba(255,90,31,0.2)' }}>
+        {card.tag}
+      </span>
+    </motion.div>
+  ))}
+</div>
         </div>
       </section>
 
@@ -256,7 +285,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* CHANGE: steps — update name, title, desc for each of the 4 steps */}
             {[
-              { num: '01', name: 'Analysis', title: 'We audit your content', desc: 'We analyze your existing videos to identify top-performing moments and the highest monetization opportunities across platforms.' },
+              { num: '01', name: 'Analysis', title: 'We audit your content', desc: 'We analyze your existing videos to identify top-performing moments and the highest monetization opportunities for your content.' },
               { num: '02', name: 'Repurposing', title: 'Content gets reshaped', desc: 'We adapt your videos into platform-native formats — optimized for Facebook\'s algorithm, TikTok\'s feed, and Snapchat\'s Spotlight.' },
               { num: '03', name: 'Distribution', title: 'We publish and manage', desc: 'We run your pages on Facebook, TikTok, and Snapchat. Consistent publishing, scheduling, and community management — fully handled.' },
               { num: '04', name: 'Monetization', title: 'Revenue starts flowing', desc: 'We activate every available monetization layer: ad revenue, content licensing, platform partner programs, and more.' },

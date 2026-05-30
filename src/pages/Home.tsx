@@ -286,8 +286,8 @@ export default function Home() {
             {/* CHANGE: steps — update name, title, desc for each of the 4 steps */}
             {[
               { num: '01', name: 'Analysis', title: 'We audit your content', desc: 'We analyze your existing videos to identify top-performing moments and the highest monetization opportunities for your content.' },
-              { num: '02', name: 'Repurposing', title: 'Content gets reshaped', desc: 'We adapt your videos into platform-native formats — optimized for Facebook\'s algorithm, TikTok\'s feed, and Snapchat\'s Spotlight.' },
-              { num: '03', name: 'Distribution', title: 'We publish and manage', desc: 'We run your pages on Facebook, TikTok, and Snapchat. Consistent publishing, scheduling, and community management — fully handled.' },
+              { num: '02', name: 'Repurposing', title: 'Content gets reshaped', desc: 'We adapt your videos into platform-native formats — optimized for the selected platforms to maximize reach, engagement, and revenue.' },
+              { num: '03', name: 'Distribution', title: 'We publish and manage', desc: 'We run and manage your presence on the platforms that best fit your content strategy. Consistent publishing, scheduling, and community management — fully handled.' },
               { num: '04', name: 'Monetization', title: 'Revenue starts flowing', desc: 'We activate every available monetization layer: ad revenue, content licensing, platform partner programs, and more.' },
             ].map((step) => (
               <motion.div 
@@ -340,9 +340,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {/* CHANGE: service cards — update title and desc for each */}
             {[
-              { title: 'Content Repurposing', desc: 'Your YouTube videos transformed into platform-native formats for Facebook, TikTok, and Snapchat.' },
-              { title: 'Multi-Platform Publishing', desc: 'Consistent, strategic content deployment across all three platforms on an optimized schedule.' },
-              { title: 'Page Management', desc: 'Full management of your Facebook pages, TikTok accounts, and Snapchat profiles — top to bottom.' },
+              { title: 'Content Repurposing', desc: 'Your YouTube videos transformed into platform-native formats tailored to the channels that best fit your content and audience.' },
+              { title: 'Multi-Platform Publishing', desc: 'Consistent, strategic content deployment across selected platforms on an optimized schedule designed for maximum reach and revenue.' },
+              { title: 'Page Management', desc: 'Full management of your social media pages and accounts — handled from start to finish.' },
               { title: 'Monetization Strategy', desc: 'We activate every revenue stream available — ad breaks, creator funds, and partner programs.' },
               { title: 'Content Licensing', desc: 'Especially powerful on Facebook — we handle licensing deals that generate passive recurring revenue.' },
               { title: 'Performance Reporting', desc: 'Clear revenue and growth reports so you always know exactly what your content is earning.' },

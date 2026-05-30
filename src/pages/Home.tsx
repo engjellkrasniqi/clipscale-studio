@@ -79,7 +79,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center">
             <span className="font-syne text-[1.8rem] font-extrabold leading-none" style={{background: 'linear-gradient(135deg, #FF5A1F, #ff8c5a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
-              4,000+  {/* CHANGE: stat number */}
+              THOUSANDS  {/* CHANGE: stat number */}
             </span>
             <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">
               Videos Deployed  {/* CHANGE: stat label */}
@@ -88,7 +88,7 @@ export default function Home() {
           <div className="w-[1px] h-10 bg-white/10 hidden sm:block" />
           <div className="flex flex-col items-center">
             <span className="font-syne text-[1.8rem] font-extrabold leading-none" style={{background: 'linear-gradient(135deg, #FF5A1F, #ff8c5a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
-              2B+  {/* CHANGE: stat number */}
+              BILLIONS  {/* CHANGE: stat number */}
             </span>
             <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">
               Views Generated  {/* CHANGE: stat label */}
@@ -97,7 +97,7 @@ export default function Home() {
           <div className="w-[1px] h-10 bg-white/10 hidden sm:block" />
           <div className="flex flex-col items-center">
             <span className="font-syne text-[1.8rem] font-extrabold leading-none" style={{background: 'linear-gradient(135deg, #FF5A1F, #ff8c5a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
-              150+  {/* CHANGE: stat number */}
+              HUNDREDS  {/* CHANGE: stat number */}
             </span>
             <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">
               Creators Scaled  {/* CHANGE: stat label */}

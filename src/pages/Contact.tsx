@@ -85,7 +85,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h2 className="text-[1.15rem] font-bold text-white">Book a Free Strategy Call</h2>
-                      <p className="text-[0.8rem] text-white/35 mt-0.5">30 minutes · No pressure · 100% free</p>
+                      <p className="text-[0.8rem] text-white/35 mt-0.5">15 minutes · No pressure · 100% free</p>
                     </div>
                   </div>
 

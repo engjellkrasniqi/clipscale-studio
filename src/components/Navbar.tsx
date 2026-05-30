@@ -26,7 +26,7 @@ export default function Navbar() {
         <img
           src="/logo.png"
           alt="ClipScale Studio logo"
-          className="h-36 md:h-44 w-auto object-contain -mb-8 -mt-6"
+          className="h-36 md:h-44 w-auto object-contain -my-12"
         />
       </Link>
 

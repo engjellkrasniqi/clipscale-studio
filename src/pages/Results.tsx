@@ -71,7 +71,7 @@ const projects = [
     platforms: ["Facebook"] // CHANGE: platforms used
   },
   {
-    id: 5,
+    id: 6,
     title: "Automotive",         // CHANGE: project title
     creator: "C & C Equipment",           // CHANGE: creator name
     thumbnail: "/image6.png", // CHANGE: thumbnail URL
@@ -80,7 +80,7 @@ const projects = [
     platforms: ["Facebook"] // CHANGE: platforms used
   },
   {
-    id: 6,
+    id: 7,
     title: "Home & Living",         // CHANGE: project title
     creator: "Tiny House Expedition",           // CHANGE: creator name
     thumbnail: "/image7.png", // CHANGE: thumbnail URL
@@ -89,12 +89,30 @@ const projects = [
     platforms: ["Facebook"] // CHANGE: platforms used
   },
   {
-    id: 7,
+    id: 8,
     title: "Blacksmithing",         // CHANGE: project title
     creator: "Nils Ögren",           // CHANGE: creator name
     thumbnail: "/image8.png", // CHANGE: thumbnail URL
     videoUrl: "https://www.facebook.com/share/v/14e5XABqowY/", // CHANGE: video link
     stats: "1.1M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook"] // CHANGE: platforms used
+  },
+  {
+    id: 9,
+    title: "Restoration",         // CHANGE: project title
+    creator: "Forgotten Shine Restoration",           // CHANGE: creator name
+    thumbnail: "/image9.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/share/v/1D6NNhbgbR/", // CHANGE: video link
+    stats: "5.7M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
+  },
+  {
+    id: 9,
+    title: "Health & Wellness",         // CHANGE: project title
+    creator: "Dr. Tyler Bigenho DC",           // CHANGE: creator name
+    thumbnail: "/image10.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/share/v/1JHfrfjeLJ/", // CHANGE: video link
+    stats: "3.2M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook"] // CHANGE: platforms used
   }
 

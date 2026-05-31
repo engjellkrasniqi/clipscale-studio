@@ -87,6 +87,15 @@ const projects = [
     videoUrl: "https://www.facebook.com/share/v/1HyFE7ct4S/", // CHANGE: video link
     stats: "2.4M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook"] // CHANGE: platforms used
+  },
+  {
+    id: 7,
+    title: "Blacksmithing",         // CHANGE: project title
+    creator: "Nils Ögren",           // CHANGE: creator name
+    thumbnail: "/image8.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/share/v/14e5XABqowY/", // CHANGE: video link
+    stats: "1.1M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook"] // CHANGE: platforms used
   }
 
 ];

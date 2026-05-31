@@ -123,6 +123,15 @@ const projects = [
     videoUrl: "https://www.facebook.com/reel/652378431241495", // CHANGE: video link
     stats: "6.8M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
+  },
+  {
+    id: 12,
+    title: "Woodworking",         // CHANGE: project title
+    creator: "Olivier Gomis Woodturning",           // CHANGE: creator name
+    thumbnail: "/image12.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/reel/652378431241495", // CHANGE: video link
+    stats: "4.7M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
   }
 
 ];

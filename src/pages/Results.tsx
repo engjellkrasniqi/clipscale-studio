@@ -107,13 +107,22 @@ const projects = [
     platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
   },
   {
-    id: 9,
+    id: 10,
     title: "Health & Wellness",         // CHANGE: project title
     creator: "Dr. Tyler Bigenho DC",           // CHANGE: creator name
     thumbnail: "/image10.png", // CHANGE: thumbnail URL
     videoUrl: "https://www.facebook.com/share/v/1JHfrfjeLJ/", // CHANGE: video link
     stats: "3.2M+ Views",                        // CHANGE: headline stat
     platforms: ["Facebook"] // CHANGE: platforms used
+  },
+  {
+    id: 11,
+    title: "Sculpting",         // CHANGE: project title
+    creator: "BM Sculptures",           // CHANGE: creator name
+    thumbnail: "/image11.png", // CHANGE: thumbnail URL
+    videoUrl: "https://www.facebook.com/reel/652378431241495", // CHANGE: video link
+    stats: "6.8M+ Views",                        // CHANGE: headline stat
+    platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
   }
 
 ];

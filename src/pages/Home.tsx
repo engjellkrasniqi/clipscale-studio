@@ -83,21 +83,21 @@ export default function Home() {
             <span className="font-syne text-[1.8rem] font-extrabold leading-none" style={{background: 'linear-gradient(135deg, #FF5A1F, #ff8c5a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
               THOUSANDS
             </span>
-            <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">Videos Deployed</span>
+            <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">of Videos Deployed</span>
           </div>
           <div className="w-[1px] h-10 bg-white/10 hidden sm:block" />
           <div className="flex flex-col items-center">
             <span className="font-syne text-[1.8rem] font-extrabold leading-none" style={{background: 'linear-gradient(135deg, #FF5A1F, #ff8c5a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
               BILLIONS
             </span>
-            <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">Views Generated</span>
+            <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">OF VIEWS GENERATED</span>
           </div>
           <div className="w-[1px] h-10 bg-white/10 hidden sm:block" />
           <div className="flex flex-col items-center">
             <span className="font-syne text-[1.8rem] font-extrabold leading-none" style={{background: 'linear-gradient(135deg, #FF5A1F, #ff8c5a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
               HUNDREDS
             </span>
-            <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">Creators Scaled</span>
+            <span className="text-[0.78rem] text-white/40 font-medium mt-1 tracking-wider">OF CREATORS SCALED</span>
           </div>
         </motion.div>
       </section>

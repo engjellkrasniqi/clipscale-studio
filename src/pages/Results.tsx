@@ -1,235 +1,274 @@
+// import { motion } from 'motion/react';
+// import { Link } from 'react-router-dom';
+// import { Play, ExternalLink, Users, Video, BarChart3, ArrowRight } from 'lucide-react';
+
+// // ============================================================
+// //  EDIT YOUR PORTFOLIO PROJECTS HERE
+// //  Each object = one project card on the page.
+// //
+// //  HOW TO UPDATE:
+// //  - "thumbnail": paste the URL of the thumbnail image
+// //      e.g. "https://i.ytimg.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg"
+// //      or a local path like "/images/project1.jpg"
+// //
+// //  - "videoUrl": paste the URL that opens when the play button is clicked
+// //      Facebook: "https://www.facebook.com/watch/?v=YOUR_VIDEO_ID"
+// //      YouTube:  "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+// //      TikTok:   "https://www.tiktok.com/@handle/video/YOUR_VIDEO_ID"
+// //
+// //  - "title": the project/campaign name shown on the card
+// //  - "creator": the creator or brand you worked with
+// //  - "stats": the headline result (e.g. "45M+ Views")
+// //  - "platforms": which platforms were used — ["Facebook", "TikTok", "Snapchat"]
+// //
+// //  ADD MORE PROJECTS: just copy one { ... } block, paste it below,
+// //  and update the fields. Make sure to increment the "id".
+// // ============================================================
+// const projects = [
+//   {
+//     id: 1,
+//     title: "True Crime",         // CHANGE: project title
+//     creator: "True 911 Calls",           // CHANGE: creator name
+//     thumbnail: "/image1.png",                   // CHANGE: thumbnail URL or local path
+//     videoUrl: "https://www.facebook.com/watch/?v=792110205219679", // CHANGE: video link
+//     stats: "2.7M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook"]           // CHANGE: platforms used
+//   },
+//   {
+//     id: 2,
+//     title: "Wildlife",           // CHANGE: project title
+//     creator: "Dean Schneider",           // CHANGE: creator name
+//     thumbnail: "/image2.png",            // CHANGE: thumbnail URL or local path
+//     videoUrl: "https://www.facebook.com/share/r/1V5eD7axet/", // CHANGE: video link
+//     stats: "9M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook"]         // CHANGE: platforms used
+//   },
+//   {
+//     id: 3,
+//     title: "Automotive",        // CHANGE: project title
+//     creator: "VINwiki",           // CHANGE: creator name
+//     thumbnail: "/image3.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/watch/?v=439730774714109", // CHANGE: video link
+//     stats: "3M+ Views",                         // CHANGE: headline stat
+//     platforms: ["Facebook"]           // CHANGE: platforms used
+//   },
+//   {
+//     id: 4,
+//     title: "Restoration",         // CHANGE: project title
+//     creator: "Cool Again Restoration",           // CHANGE: creator name
+//     thumbnail: "/image4_1.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.snapchat.com/p/3a3ba2c4-6988-40bd-b665-376e38566ab8/1146091361204224", // CHANGE: video link
+//     stats: "2M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Snapchat"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 5,
+//     title: "True Crime",         // CHANGE: project title
+//     creator: "Caspersight",           // CHANGE: creator name
+//     thumbnail: "/image5.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/reel/826913886455400", // CHANGE: video link
+//     stats: "10M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 6,
+//     title: "Automotive",         // CHANGE: project title
+//     creator: "C & C Equipment",           // CHANGE: creator name
+//     thumbnail: "/image6.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/share/r/1ApRwiXWkp/", // CHANGE: video link
+//     stats: "6.6M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 7,
+//     title: "Home & Living",         // CHANGE: project title
+//     creator: "Tiny House Expedition",           // CHANGE: creator name
+//     thumbnail: "/image7.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/share/v/1HyFE7ct4S/", // CHANGE: video link
+//     stats: "2.4M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 8,
+//     title: "Blacksmithing",         // CHANGE: project title
+//     creator: "Nils Ögren",           // CHANGE: creator name
+//     thumbnail: "/image8.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/share/v/14e5XABqowY/", // CHANGE: video link
+//     stats: "1.1M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 9,
+//     title: "Restoration",         // CHANGE: project title
+//     creator: "Forgotten Shine Restoration",           // CHANGE: creator name
+//     thumbnail: "/image9.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/share/v/1D6NNhbgbR/", // CHANGE: video link
+//     stats: "5.7M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 10,
+//     title: "Health & Wellness",         // CHANGE: project title
+//     creator: "Dr. Tyler Bigenho DC",           // CHANGE: creator name
+//     thumbnail: "/image10.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/share/v/1JHfrfjeLJ/", // CHANGE: video link
+//     stats: "3.2M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 11,
+//     title: "Sculpting",         // CHANGE: project title
+//     creator: "BM Sculptures",           // CHANGE: creator name
+//     thumbnail: "/image11.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/reel/652378431241495", // CHANGE: video link
+//     stats: "6.8M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
+//   },
+//   {
+//     id: 12,
+//     title: "Woodworking",         // CHANGE: project title
+//     creator: "Olivier Gomis Woodturning",           // CHANGE: creator name
+//     thumbnail: "/image12.png", // CHANGE: thumbnail URL
+//     videoUrl: "https://www.facebook.com/reel/1015174773947397", // CHANGE: video link
+//     stats: "4.7M+ Views",                        // CHANGE: headline stat
+//     platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
+//   }
+
+// ];
+// // ============================================================
+// //  END OF EDITABLE SECTION — don't edit below unless you want
+// //  to change the layout or design.
+// // ============================================================
+
+// export default function Results() {
+//   return (
+//     <div className="pt-32 pb-20 px-[6%] min-h-screen bg-linear-to-b from-[#0D1B2A] via-[#1A1A2E] to-[#0F2A24] text-white">
+//       <motion.div 
+//         initial={{ opacity: 0, y: 20 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         className="max-w-7xl mx-auto text-center mb-20"
+//       >
+//         <div className="inline-flex items-center gap-2 bg-white/5 border border-amber/20 px-4 py-1.5 rounded-full text-amber text-xs font-bold tracking-widest uppercase mb-6">
+//           <span className="w-2 h-2 bg-amber rounded-full animate-pulse"></span>
+//           Our Portfolio
+//         </div>
+//         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
+//           Real Results for <br />
+//           <span className="text-amber">Top Creators</span>
+//         </h1>
+//         <p className="text-white/60 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+//           See how we've transformed YouTube libraries into multi-platform revenue machines. 
+//           Every project below represents a successful scaling operation.
+//         </p>
+//       </motion.div>
+
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
+//         {projects.map((project, idx) => (
+//           <motion.div
+//             key={project.id}
+//             initial={{ opacity: 0, y: 30 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ delay: idx * 0.1 }}
+//             className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500"
+//           >
+//             {/* Thumbnail + Play Button */}
+//             <div className="relative aspect-video bg-black overflow-hidden">
+//               <img 
+//                 src={project.thumbnail} 
+//                 alt={project.title}
+//                 className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+//                 referrerPolicy="no-referrer"
+//               />
+//               <div className="absolute inset-0 flex items-center justify-center">
+//                 <motion.button 
+//                   whileHover={{ scale: 1.1 }} 
+//                   whileTap={{ scale: 0.9 }}
+//                   onClick={() => window.open(project.videoUrl, "_blank")}
+//                   className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-coral group-hover:border-coral transition-colors duration-300"
+//                 >
+//                   <Play className="fill-white text-white ml-1" size={24} />
+//                 </motion.button>
+//               </div>
+              
+//               <div className="absolute top-4 left-4 flex gap-2">
+//                 {project.platforms.map(p => (
+//                   <span key={p} className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">
+//                     {p}
+//                   </span>
+//                 ))}
+//               </div>
+//             </div>
+
+//             <div className="p-8">
+//               <div className="flex justify-between items-start mb-4">
+//                 <div>
+//                   <h3 className="text-2xl font-bold mb-1 group-hover:text-coral transition-colors">{project.title}</h3>
+//                   <div className="flex items-center gap-2 text-white/40 text-sm">
+//                     <Users size={14} />
+//                     <span>Worked with: <span className="text-white/80 font-medium">{project.creator}</span></span>
+//                   </div>
+//                 </div>
+//                 <div className="text-right">
+//                   <div className="text-coral font-syne font-black text-xl">{project.stats}</div>
+//                   <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Growth</div>
+//                 </div>
+//               </div>
+//             </div>
+//           </motion.div>
+//         ))}
+//       </div>
+
+//       {/* CTA */}
+//       <motion.div 
+//         initial={{ opacity: 0 }}
+//         whileInView={{ opacity: 1 }}
+//         className="mt-32 max-w-4xl mx-auto bg-linear-to-r from-coral/10 to-orange/10 border border-coral/20 rounded-[2rem] p-12 text-center"
+//       >
+//         <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to see these numbers on your dashboard?</h2>
+//         <Link to="/contact" className="bg-gradient-coral px-10 py-4 rounded-full font-syne font-extrabold text-lg hover:translate-y-[-4px] hover:shadow-2xl hover:shadow-coral/40 transition-all inline-block">
+//   Apply to Scale Now
+// </Link>
+//       </motion.div>
+//     </div>
+//   );
+// }
+
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Play, ExternalLink, Users, Video, BarChart3, ArrowRight } from 'lucide-react';
-
-// ============================================================
-//  EDIT YOUR PORTFOLIO PROJECTS HERE
-//  Each object = one project card on the page.
-//
-//  HOW TO UPDATE:
-//  - "thumbnail": paste the URL of the thumbnail image
-//      e.g. "https://i.ytimg.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg"
-//      or a local path like "/images/project1.jpg"
-//
-//  - "videoUrl": paste the URL that opens when the play button is clicked
-//      Facebook: "https://www.facebook.com/watch/?v=YOUR_VIDEO_ID"
-//      YouTube:  "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
-//      TikTok:   "https://www.tiktok.com/@handle/video/YOUR_VIDEO_ID"
-//
-//  - "title": the project/campaign name shown on the card
-//  - "creator": the creator or brand you worked with
-//  - "stats": the headline result (e.g. "45M+ Views")
-//  - "platforms": which platforms were used — ["Facebook", "TikTok", "Snapchat"]
-//
-//  ADD MORE PROJECTS: just copy one { ... } block, paste it below,
-//  and update the fields. Make sure to increment the "id".
-// ============================================================
-const projects = [
-  {
-    id: 1,
-    title: "True Crime",         // CHANGE: project title
-    creator: "True 911 Calls",           // CHANGE: creator name
-    thumbnail: "/image1.png",                   // CHANGE: thumbnail URL or local path
-    videoUrl: "https://www.facebook.com/watch/?v=792110205219679", // CHANGE: video link
-    stats: "2.7M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook"]           // CHANGE: platforms used
-  },
-  {
-    id: 2,
-    title: "Wildlife",           // CHANGE: project title
-    creator: "Dean Schneider",           // CHANGE: creator name
-    thumbnail: "/image2.png",            // CHANGE: thumbnail URL or local path
-    videoUrl: "https://www.facebook.com/share/r/1V5eD7axet/", // CHANGE: video link
-    stats: "9M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook"]         // CHANGE: platforms used
-  },
-  {
-    id: 3,
-    title: "Automotive",        // CHANGE: project title
-    creator: "VINwiki",           // CHANGE: creator name
-    thumbnail: "/image3.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/watch/?v=439730774714109", // CHANGE: video link
-    stats: "3M+ Views",                         // CHANGE: headline stat
-    platforms: ["Facebook"]           // CHANGE: platforms used
-  },
-  {
-    id: 4,
-    title: "Restoration",         // CHANGE: project title
-    creator: "Cool Again Restoration",           // CHANGE: creator name
-    thumbnail: "/image4_1.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.snapchat.com/p/3a3ba2c4-6988-40bd-b665-376e38566ab8/1146091361204224", // CHANGE: video link
-    stats: "2M+ Views",                        // CHANGE: headline stat
-    platforms: ["Snapchat"] // CHANGE: platforms used
-  },
-  {
-    id: 5,
-    title: "True Crime",         // CHANGE: project title
-    creator: "Caspersight",           // CHANGE: creator name
-    thumbnail: "/image5.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/reel/826913886455400", // CHANGE: video link
-    stats: "10M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook"] // CHANGE: platforms used
-  },
-  {
-    id: 6,
-    title: "Automotive",         // CHANGE: project title
-    creator: "C & C Equipment",           // CHANGE: creator name
-    thumbnail: "/image6.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/share/r/1ApRwiXWkp/", // CHANGE: video link
-    stats: "6.6M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook"] // CHANGE: platforms used
-  },
-  {
-    id: 7,
-    title: "Home & Living",         // CHANGE: project title
-    creator: "Tiny House Expedition",           // CHANGE: creator name
-    thumbnail: "/image7.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/share/v/1HyFE7ct4S/", // CHANGE: video link
-    stats: "2.4M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook"] // CHANGE: platforms used
-  },
-  {
-    id: 8,
-    title: "Blacksmithing",         // CHANGE: project title
-    creator: "Nils Ögren",           // CHANGE: creator name
-    thumbnail: "/image8.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/share/v/14e5XABqowY/", // CHANGE: video link
-    stats: "1.1M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook"] // CHANGE: platforms used
-  },
-  {
-    id: 9,
-    title: "Restoration",         // CHANGE: project title
-    creator: "Forgotten Shine Restoration",           // CHANGE: creator name
-    thumbnail: "/image9.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/share/v/1D6NNhbgbR/", // CHANGE: video link
-    stats: "5.7M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
-  },
-  {
-    id: 10,
-    title: "Health & Wellness",         // CHANGE: project title
-    creator: "Dr. Tyler Bigenho DC",           // CHANGE: creator name
-    thumbnail: "/image10.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/share/v/1JHfrfjeLJ/", // CHANGE: video link
-    stats: "3.2M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook"] // CHANGE: platforms used
-  },
-  {
-    id: 11,
-    title: "Sculpting",         // CHANGE: project title
-    creator: "BM Sculptures",           // CHANGE: creator name
-    thumbnail: "/image11.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/reel/652378431241495", // CHANGE: video link
-    stats: "6.8M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
-  },
-  {
-    id: 12,
-    title: "Woodworking",         // CHANGE: project title
-    creator: "Olivier Gomis Woodturning",           // CHANGE: creator name
-    thumbnail: "/image12.png", // CHANGE: thumbnail URL
-    videoUrl: "https://www.facebook.com/reel/1015174773947397", // CHANGE: video link
-    stats: "4.7M+ Views",                        // CHANGE: headline stat
-    platforms: ["Facebook", "TikTok"] // CHANGE: platforms used
-  }
-
-];
-// ============================================================
-//  END OF EDITABLE SECTION — don't edit below unless you want
-//  to change the layout or design.
-// ============================================================
+import { AlertTriangle } from 'lucide-react';
 
 export default function Results() {
   return (
-    <div className="pt-32 pb-20 px-[6%] min-h-screen bg-linear-to-b from-[#0D1B2A] via-[#1A1A2E] to-[#0F2A24] text-white">
-      <motion.div 
+    <div className="pt-32 pb-20 px-[6%] min-h-screen flex items-center justify-center bg-linear-to-b from-[#0D1B2A] via-[#1A1A2E] to-[#0F2A24] text-white">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-7xl mx-auto text-center mb-20"
+        className="max-w-xl text-center"
       >
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-amber/20 px-4 py-1.5 rounded-full text-amber text-xs font-bold tracking-widest uppercase mb-6">
-          <span className="w-2 h-2 bg-amber rounded-full animate-pulse"></span>
-          Our Portfolio
+        <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+          <AlertTriangle size={36} className="text-amber" />
         </div>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
-          Real Results for <br />
-          <span className="text-amber">Top Creators</span>
+        <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+          Something went wrong
         </h1>
-        <p className="text-white/60 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-          See how we've transformed YouTube libraries into multi-platform revenue machines. 
-          Every project below represents a successful scaling operation.
+        <p className="text-white/60 text-lg font-light mb-10">
+          This page is currently unavailable. Please check back later.
         </p>
-      </motion.div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
-        {projects.map((project, idx) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
-            className="group bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-white/20 transition-all duration-500"
-          >
-            {/* Thumbnail + Play Button */}
-            <div className="relative aspect-video bg-black overflow-hidden">
-              <img 
-                src={project.thumbnail} 
-                alt={project.title}
-                className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.button 
-                  whileHover={{ scale: 1.1 }} 
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => window.open(project.videoUrl, "_blank")}
-                  className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-coral group-hover:border-coral transition-colors duration-300"
-                >
-                  <Play className="fill-white text-white ml-1" size={24} />
-                </motion.button>
-              </div>
-              
-              <div className="absolute top-4 left-4 flex gap-2">
-                {project.platforms.map(p => (
-                  <span key={p} className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                    {p}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold mb-1 group-hover:text-coral transition-colors">{project.title}</h3>
-                  <div className="flex items-center gap-2 text-white/40 text-sm">
-                    <Users size={14} />
-                    <span>Worked with: <span className="text-white/80 font-medium">{project.creator}</span></span>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-coral font-syne font-black text-xl">{project.stats}</div>
-                  <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Growth</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* CTA */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        className="mt-32 max-w-4xl mx-auto bg-linear-to-r from-coral/10 to-orange/10 border border-coral/20 rounded-[2rem] p-12 text-center"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to see these numbers on your dashboard?</h2>
-        <Link to="/contact" className="bg-gradient-coral px-10 py-4 rounded-full font-syne font-extrabold text-lg hover:translate-y-[-4px] hover:shadow-2xl hover:shadow-coral/40 transition-all inline-block">
-  Apply to Scale Now
-</Link>
+        <Link
+          to="/"
+          className="bg-gradient-coral px-8 py-3 rounded-full font-syne font-extrabold inline-block hover:-translate-y-1 transition-all"
+        >
+          Back to Home
+        </Link>
       </motion.div>
     </div>
   );
 }
+
+// ============================================================
+//  OLD PAGE (taken down) — original code kept below
+// ============================================================
+// import { motion } from 'motion/react';
+// import { Link } from 'react-router-dom';
+// ... (the rest of your old code, each line starting with //)

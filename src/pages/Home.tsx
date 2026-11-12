@@ -58,19 +58,7 @@ export default function Home() {
             Let's Scale Your Content
           </Link>
 
-          {/* SECONDARY — outlined parallelogram */}
-          <Link
-            to="/results"
-            className="text-white px-10 py-4 font-syne font-bold text-base tracking-tight hover:translate-y-[-3px] transition-all relative"
-            style={{
-              clipPath: 'polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%)',
-              background: 'rgba(255,255,255,0.05)',
-              outline: '1px solid rgba(255,90,31,0.35)',
-              backdropFilter: 'blur(8px)',
-            }}
-          >
-            See Our Results
-          </Link>
+ 
         </motion.div>
 
         <motion.div 

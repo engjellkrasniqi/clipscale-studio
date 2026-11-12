@@ -48,14 +48,7 @@ export default function Navbar() {
             Services
           </Link>
         </li>
-        <li>
-          <Link
-            to="/results"
-            className="text-sm font-medium text-white/50 hover:text-white transition-colors"
-          >
-            Results
-          </Link>
-        </li>
+        
       </ul>
 
       {/* CTA Button */}
